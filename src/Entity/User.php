@@ -1,0 +1,151 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\UserRepository;
+use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+#[ORM\Table(name: '`user`')]
+#[ORM\Entity(repositoryClass: UserRepository::class)]
+class User
+{
+    #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
+    private ?int $id = null;
+
+    #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    private ?string $surname = null;
+
+    #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    private ?string $name = null;
+
+    #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    private ?string $patronymic = null;
+
+    #[ORM\Column(type: 'string', length: 100, nullable: false)]
+    private ?string $email = null;
+
+    #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
+    #[Gedmo\Timestampable(on: 'create')]
+    private ?DateTime $createdAt = null;
+
+    #[ORM\Column(name: 'updated_at', type: 'datetime', nullable: false)]
+    #[Gedmo\Timestampable(on: 'update')]
+    private ?DateTime $updatedAt = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserAchievement::class)]
+    private Collection $achievements;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: TaskAssessment::class)]
+    private Collection $taskAssessments;
+
+    public function __construct()
+    {
+        $this->achievements = new ArrayCollection();
+        $this->taskAssessments = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(?string $surname): self
+    {
+        $this->surname = $surname;
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function getPatronymic(): ?string
+    {
+        return $this->patronymic;
+    }
+
+    public function setPatronymic(?string $patronymic): self
+    {
+        $this->patronymic = $patronymic;
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    public function getCreatedAt(): ?DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
+    public function getAchievements(): Collection
+    {
+        return $this->achievements;
+    }
+
+    public function setAchievements(Collection $achievements): self
+    {
+        $this->achievements = $achievements;
+        return $this;
+    }
+
+    public function getTaskAssessments(): Collection
+    {
+        return $this->taskAssessments;
+    }
+
+    public function setTaskAssessments(Collection $taskAssessments): self
+    {
+        $this->taskAssessments = $taskAssessments;
+        return $this;
+    }
+}

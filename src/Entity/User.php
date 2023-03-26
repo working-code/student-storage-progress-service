@@ -19,24 +19,24 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
-    private ?string $surname = null;
+    private string $surname;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
-    private ?string $name = null;
+    private string $name;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
-    private ?string $patronymic = null;
+    private string $patronymic;
 
     #[ORM\Column(type: 'string', length: 100, nullable: false)]
-    private ?string $email = null;
+    private string $email;
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTime $createdAt = null;
+    private DateTime $createdAt;
 
     #[ORM\Column(name: 'updated_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTime $updatedAt = null;
+    private DateTime $updatedAt;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserAchievement::class)]
     private Collection $achievements;
@@ -61,67 +61,67 @@ class User
         return $this;
     }
 
-    public function getSurname(): ?string
+    public function getSurname(): string
     {
         return $this->surname;
     }
 
-    public function setSurname(?string $surname): self
+    public function setSurname(string $surname): self
     {
         $this->surname = $surname;
         return $this;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
     }
 
-    public function getPatronymic(): ?string
+    public function getPatronymic(): string
     {
         return $this->patronymic;
     }
 
-    public function setPatronymic(?string $patronymic): self
+    public function setPatronymic(string $patronymic): self
     {
         $this->patronymic = $patronymic;
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
         return $this;
     }
 
-    public function getCreatedAt(): ?DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?DateTime $createdAt): self
+    public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
         return $this;
     }
 
-    public function getUpdatedAt(): ?DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?DateTime $updatedAt): self
+    public function setUpdatedAt(DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
         return $this;

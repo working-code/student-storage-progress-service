@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Enums\TaskType;
 use App\Repository\TaskRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,23 +12,19 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 class Task
 {
-    public const TYPE_TASK = 1;
-    public const TYPE_LESSON = 2;
-    public const TYPE_COURSE = 3;
-
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
-    private ?string $title = null;
+    private string $title;
 
     #[ORM\Column(type: 'text', nullable: false)]
-    private ?string $content = null;
+    private string $content;
 
-    #[ORM\Column(type: 'smallint', nullable: false)]
-    private ?string $type = null;
+    #[ORM\Column(type: 'smallint', nullable: false, enumType: TaskType::class)]
+    private TaskType $type;
 
     #[ORM\OneToMany(mappedBy: 'task', targetEntity: TaskAssessment::class)]
     private Collection $taskAssessments;
@@ -63,34 +60,34 @@ class Task
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setTitle(?string $title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getContent(): string
     {
         return $this->content;
     }
 
-    public function setContent(?string $content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): TaskType
     {
         return $this->type;
     }
 
-    public function setType(?string $type): self
+    public function setType(TaskType $type): self
     {
         $this->type = $type;
         return $this;

@@ -17,10 +17,10 @@ class Achievement
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
-    private ?string $title = null;
+    private string $title;
 
     #[ORM\Column(type: 'string', length: 255, nullable: false)]
-    private ?string $description = null;
+    private string $description;
 
     #[ORM\OneToMany(mappedBy: 'achievement', targetEntity: UserAchievement::class)]
     private Collection $users;
@@ -41,23 +41,23 @@ class Achievement
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setTitle(?string $title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
         return $this;

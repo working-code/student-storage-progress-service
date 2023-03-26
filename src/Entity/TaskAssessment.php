@@ -21,23 +21,23 @@ class TaskAssessment
     private ?int $id = null;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'taskAssessments')]
-    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
-    private ?User $user = null;
+    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
+    private User $user;
 
     #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'taskAssessments')]
-    #[ORM\JoinColumn(name: 'task_id', referencedColumnName: 'id')]
-    private ?Task $task = null;
+    #[ORM\JoinColumn(name: 'task_id', referencedColumnName: 'id', nullable: false)]
+    private Task $task;
 
     #[ORM\Column(type: 'smallint', nullable: false)]
-    private ?int $assessment = null;
+    private int $assessment;
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTime $createdAt = null;
+    private DateTime $createdAt;
 
     #[ORM\Column(name: 'updated_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTime $updatedAt = null;
+    private DateTime $updatedAt;
 
     #[ORM\OneToMany(mappedBy: 'taskAssessment', targetEntity: SkillAssessment::class)]
     private Collection $skillAssessments;
@@ -58,58 +58,58 @@ class TaskAssessment
         return $this;
     }
 
-    public function getAssessment(): ?int
-    {
-        return $this->assessment;
-    }
-
-    public function setAssessment(?int $assessment): self
-    {
-        $this->assessment = $assessment;
-        return $this;
-    }
-
-    public function getCreatedAt(): ?DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(?DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-        return $this;
-    }
-
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
         return $this;
     }
 
-    public function getTask(): ?Task
+    public function getTask(): Task
     {
         return $this->task;
     }
 
-    public function setTask(?Task $task): self
+    public function setTask(Task $task): self
     {
         $this->task = $task;
+        return $this;
+    }
+
+    public function getAssessment(): int
+    {
+        return $this->assessment;
+    }
+
+    public function setAssessment(int $assessment): self
+    {
+        $this->assessment = $assessment;
+        return $this;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 

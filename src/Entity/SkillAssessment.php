@@ -17,15 +17,15 @@ class SkillAssessment
     private ?int $id = null;
 
     #[ORM\ManyToOne(targetEntity: Skill::class, inversedBy: 'skillAssessments')]
-    #[ORM\JoinColumn(name: 'skill_id', referencedColumnName: 'id')]
-    private ?Skill $skill = null;
+    #[ORM\JoinColumn(name: 'skill_id', referencedColumnName: 'id', nullable: false)]
+    private Skill $skill;
 
     #[ORM\ManyToOne(targetEntity: TaskAssessment::class, inversedBy: 'skillAssessments')]
-    #[ORM\JoinColumn(name: 'task_assessment_id', referencedColumnName: 'id')]
-    private ?TaskAssessment $taskAssessment = null;
+    #[ORM\JoinColumn(name: 'task_assessment_id', referencedColumnName: 'id', nullable: false)]
+    private TaskAssessment $taskAssessment;
 
     #[ORM\Column(type: 'smallint', nullable: false)]
-    private ?int $skillValue = null;
+    private int $skillValue;
 
     public function getId(): ?int
     {
@@ -38,34 +38,34 @@ class SkillAssessment
         return $this;
     }
 
-    public function getSkill(): ?Skill
+    public function getSkill(): Skill
     {
         return $this->skill;
     }
 
-    public function setSkill(?Skill $skill): self
+    public function setSkill(Skill $skill): self
     {
         $this->skill = $skill;
         return $this;
     }
 
-    public function getTaskAssessment(): ?TaskAssessment
+    public function getTaskAssessment(): TaskAssessment
     {
         return $this->taskAssessment;
     }
 
-    public function setTaskAssessment(?TaskAssessment $taskAssessment): self
+    public function setTaskAssessment(TaskAssessment $taskAssessment): self
     {
         $this->taskAssessment = $taskAssessment;
         return $this;
     }
 
-    public function getSkillValue(): ?int
+    public function getSkillValue(): int
     {
         return $this->skillValue;
     }
 
-    public function setSkillValue(?int $skillValue): self
+    public function setSkillValue(int $skillValue): self
     {
         $this->skillValue = $skillValue;
         return $this;

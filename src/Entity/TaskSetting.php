@@ -17,15 +17,15 @@ class TaskSetting
     private ?int $id = null;
 
     #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'taskSettings')]
-    #[ORM\JoinColumn(name: 'task_id', referencedColumnName: 'id')]
-    private ?Task $task = null;
+    #[ORM\JoinColumn(name: 'task_id', referencedColumnName: 'id', nullable: false)]
+    private Task $task;
 
     #[ORM\ManyToOne(targetEntity: Skill::class, inversedBy: 'taskSettings')]
-    #[ORM\JoinColumn(name: 'skill_id')]
-    private ?Skill $skill = null;
+    #[ORM\JoinColumn(name: 'skill_id', referencedColumnName: 'id', nullable: false)]
+    private Skill $skill;
 
     #[ORM\Column(type: 'smallint', nullable: false)]
-    private ?int $valuePercentage = null;
+    private int $valuePercentage;
 
     public function getId(): ?int
     {
@@ -38,36 +38,36 @@ class TaskSetting
         return $this;
     }
 
-    public function getValuePercentage(): ?int
-    {
-        return $this->valuePercentage;
-    }
-
-    public function setValuePercentage(?int $valuePercentage): self
-    {
-        $this->valuePercentage = $valuePercentage;
-        return $this;
-    }
-
-    public function getTask(): ?Task
+    public function getTask(): Task
     {
         return $this->task;
     }
 
-    public function setTask(?Task $task): self
+    public function setTask(Task $task): self
     {
         $this->task = $task;
         return $this;
     }
 
-    public function getSkill(): ?Skill
+    public function getSkill(): Skill
     {
         return $this->skill;
     }
 
-    public function setSkill(?Skill $skill): self
+    public function setSkill(Skill $skill): self
     {
         $this->skill = $skill;
+        return $this;
+    }
+
+    public function getValuePercentage(): int
+    {
+        return $this->valuePercentage;
+    }
+
+    public function setValuePercentage(int $valuePercentage): self
+    {
+        $this->valuePercentage = $valuePercentage;
         return $this;
     }
 }

@@ -19,20 +19,20 @@ class UserAchievement
     private ?int $id = null;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'achievements')]
-    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
-    private ?User $user = null;
+    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
+    private User $user;
 
     #[ORM\ManyToOne(targetEntity: Achievement::class, inversedBy: 'users')]
-    #[ORM\JoinColumn(name: 'achievement_id', referencedColumnName: 'id')]
-    private ?Achievement $achievement = null;
+    #[ORM\JoinColumn(name: 'achievement_id', referencedColumnName: 'id', nullable: false)]
+    private Achievement $achievement;
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTime $createdAt = null;
+    private DateTime $createdAt;
 
     #[ORM\Column(name: 'update_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTime $updatedAt = null;
+    private DateTime $updatedAt;
 
     public function getId(): ?int
     {
@@ -45,45 +45,45 @@ class UserAchievement
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
         return $this;
     }
 
-    public function getAchievement(): ?Achievement
+    public function getAchievement(): Achievement
     {
         return $this->achievement;
     }
 
-    public function setAchievement(?Achievement $achievement): self
+    public function setAchievement(Achievement $achievement): self
     {
         $this->achievement = $achievement;
         return $this;
     }
 
-    public function getCreatedAt(): ?DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?DateTime $createdAt): self
+    public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
         return $this;
     }
 
-    public function getUpdatedAt(): ?DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?DateTime $updatedAt): self
+    public function setUpdatedAt(DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
         return $this;

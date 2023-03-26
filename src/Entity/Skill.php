@@ -17,7 +17,7 @@ class Skill
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
-    private ?string $name = null;
+    private string $name;
 
     #[ORM\OneToMany(mappedBy: 'skill', targetEntity: SkillAssessment::class)]
     private Collection $skillAssessments;
@@ -42,12 +42,12 @@ class Skill
         return $this;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;

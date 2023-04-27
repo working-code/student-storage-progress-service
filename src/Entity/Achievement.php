@@ -12,6 +12,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: AchievementRepository::class)]
 class Achievement
 {
+    public const NAME_GOLD = 'Золото';
+    public const NAME_SILVER = 'Супер золото';
+    public const NAME_SUPER_GOLD = 'Серебро';
+    public const NAME_SUPER_SILVER = 'Супер серебро';
+
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]

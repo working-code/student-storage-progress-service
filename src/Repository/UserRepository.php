@@ -12,10 +12,8 @@ class UserRepository extends EntityRepository
      */
     public function getUsersWithOffset(int $numberPage, int $countInPage): array
     {
-        $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->select('u')
-            ->from(User::class, 'u')
-            ->addOrderBy('u.id', 'ASC')
+        $qb = $this->createQueryBuilder('u');
+        $qb->addOrderBy('u.id', 'ASC')
             ->setFirstResult(--$numberPage * $countInPage)
             ->setMaxResults($countInPage);
 

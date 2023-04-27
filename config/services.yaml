@@ -26,3 +26,12 @@ services:
   App\Doctrine\MigrationEventSubscriber:
     tags:
       - { name: 'doctrine.event_subscriber', connection: default }
+
+  App\EventListener\ValidationApiExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: !php/const Symfony\Component\HttpKernel\KernelEvents::EXCEPTION }
+
+  App\Symfony\MainParamConvertor:
+    autoconfigure: true
+    tags:
+      - { name: request.param_converter, converter: !php/const App\Symfony\MainParamConvertor::MAIN_CONVERTOR }

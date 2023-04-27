@@ -7,6 +7,7 @@ use App\Repository\TaskRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'task')]
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
@@ -18,12 +19,15 @@ class Task
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    #[Assert\NotBlank]
     private string $title;
 
     #[ORM\Column(type: 'text', nullable: false)]
+    #[Assert\NotBlank]
     private string $content;
 
     #[ORM\Column(type: 'smallint', nullable: false, enumType: TaskType::class)]
+    #[Assert\NotBlank]
     private TaskType $type;
 
     #[ORM\OneToMany(mappedBy: 'task', targetEntity: TaskAssessment::class)]
@@ -57,6 +61,7 @@ class Task
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -68,6 +73,7 @@ class Task
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -79,6 +85,7 @@ class Task
     public function setContent(string $content): self
     {
         $this->content = $content;
+
         return $this;
     }
 
@@ -90,6 +97,7 @@ class Task
     public function setType(TaskType $type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -101,6 +109,7 @@ class Task
     public function setTaskAssessments(Collection $taskAssessments): self
     {
         $this->taskAssessments = $taskAssessments;
+
         return $this;
     }
 
@@ -112,6 +121,7 @@ class Task
     public function setTaskSettings(Collection $taskSettings): self
     {
         $this->taskSettings = $taskSettings;
+
         return $this;
     }
 
@@ -123,6 +133,7 @@ class Task
     public function setChildren(Collection $children): self
     {
         $this->children = $children;
+
         return $this;
     }
 
@@ -134,6 +145,25 @@ class Task
     public function setParents(Collection $parents): self
     {
         $this->parents = $parents;
+
+        return $this;
+    }
+
+    public function addChildren(Task $task): self
+    {
+        if (!$this->children->contains($task)) {
+            $this->children->add($task);
+        }
+
+        return $this;
+    }
+
+    public function addParent(Task $task): self
+    {
+        if (!$this->parents->contains($task)) {
+            $this->parents->add($task);
+        }
+
         return $this;
     }
 }

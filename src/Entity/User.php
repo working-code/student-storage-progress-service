@@ -44,10 +44,14 @@ class User
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: TaskAssessment::class)]
     private Collection $taskAssessments;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserSkill::class)]
+    private Collection $userSkills;
+
     public function __construct()
     {
         $this->achievements = new ArrayCollection();
         $this->taskAssessments = new ArrayCollection();
+        $this->userSkills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -58,6 +62,7 @@ class User
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -69,6 +74,7 @@ class User
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
         return $this;
     }
 
@@ -80,6 +86,7 @@ class User
     public function setName(string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -91,6 +98,7 @@ class User
     public function setPatronymic(string $patronymic): self
     {
         $this->patronymic = $patronymic;
+
         return $this;
     }
 
@@ -102,6 +110,7 @@ class User
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -113,6 +122,7 @@ class User
     public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
@@ -124,6 +134,7 @@ class User
     public function setUpdatedAt(DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
         return $this;
     }
 
@@ -135,6 +146,7 @@ class User
     public function setAchievements(Collection $achievements): self
     {
         $this->achievements = $achievements;
+
         return $this;
     }
 
@@ -146,6 +158,7 @@ class User
     public function setTaskAssessments(Collection $taskAssessments): self
     {
         $this->taskAssessments = $taskAssessments;
+
         return $this;
     }
 }

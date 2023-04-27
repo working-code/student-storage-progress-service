@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TaskSettingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'task_setting')]
 #[ORM\Entity(repositoryClass: TaskSettingRepository::class)]
@@ -18,13 +19,16 @@ class TaskSetting
 
     #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'taskSettings')]
     #[ORM\JoinColumn(name: 'task_id', referencedColumnName: 'id', nullable: false)]
+    #[Assert\NotBlank]
     private Task $task;
 
     #[ORM\ManyToOne(targetEntity: Skill::class, inversedBy: 'taskSettings')]
     #[ORM\JoinColumn(name: 'skill_id', referencedColumnName: 'id', nullable: false)]
+    #[Assert\NotBlank]
     private Skill $skill;
 
     #[ORM\Column(type: 'smallint', nullable: false)]
+    #[Assert\NotNull]
     private int $valuePercentage;
 
     public function getId(): ?int
@@ -35,6 +39,7 @@ class TaskSetting
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -46,6 +51,7 @@ class TaskSetting
     public function setTask(Task $task): self
     {
         $this->task = $task;
+
         return $this;
     }
 
@@ -57,6 +63,7 @@ class TaskSetting
     public function setSkill(Skill $skill): self
     {
         $this->skill = $skill;
+
         return $this;
     }
 
@@ -68,6 +75,7 @@ class TaskSetting
     public function setValuePercentage(int $valuePercentage): self
     {
         $this->valuePercentage = $valuePercentage;
+
         return $this;
     }
 }

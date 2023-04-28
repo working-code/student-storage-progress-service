@@ -158,6 +158,15 @@ class Task
         return $this;
     }
 
+    public function deleteChildren(Task $task): self
+    {
+        if ($this->children->contains($task)) {
+            $this->children->removeElement($task);
+        }
+
+        return $this;
+    }
+
     public function addParent(Task $task): self
     {
         if (!$this->parents->contains($task)) {

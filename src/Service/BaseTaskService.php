@@ -6,6 +6,7 @@ use App\DTO\BaseTaskDTO;
 use App\Entity\Enums\TaskType;
 use App\Entity\Task;
 use App\Exception\ValidationException;
+use App\Manager\LessonManager;
 use App\Manager\TaskManager;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,6 +16,7 @@ abstract class BaseTaskService
 {
     public function __construct(
         protected readonly TaskManager            $taskManager,
+        protected readonly LessonManager          $lessonManager,
         private readonly ValidatorInterface       $validator,
         protected readonly EntityManagerInterface $em,
     )

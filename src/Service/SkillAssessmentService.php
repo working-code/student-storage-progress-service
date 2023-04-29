@@ -38,7 +38,7 @@ class SkillAssessmentService
 
     public function calculateSkillValue(TaskAssessment $taskAssessment, TaskSetting $taskSetting): int
     {
-        return (int)floor($taskAssessment->getAssessment() * $taskSetting->getValuePercentage() / 100);
+        return (int)($taskAssessment->getAssessment() * $taskSetting->getValuePercentage() / 100);
     }
 
     /**

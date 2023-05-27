@@ -1,4 +1,4 @@
-FROM php:8.1.0-fpm-alpine
+FROM php:8.1.17-fpm-alpine
 
 # Install dev dependencies
 RUN apk update \
@@ -31,6 +31,9 @@ RUN apk update \
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
+RUN apk add --update linux-headers
+RUN pecl install xdebug-3.2.1
+
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
 RUN docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) \
@@ -40,6 +43,8 @@ RUN docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) \
     pdo_pgsql \
     sockets \
     zip
+RUN docker-php-ext-enable xdebug
+
 RUN pecl channel-update pecl.php.net \
     && pecl install -o -f \
         redis \

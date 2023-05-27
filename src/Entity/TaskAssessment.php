@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'task_assessment')]
 #[ORM\Entity(repositoryClass: TaskAssessmentRepository::class)]
@@ -22,13 +23,16 @@ class TaskAssessment
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'taskAssessments')]
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
+    #[Assert\NotBlank]
     private User $user;
 
     #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'taskAssessments')]
     #[ORM\JoinColumn(name: 'task_id', referencedColumnName: 'id', nullable: false)]
+    #[Assert\NotBlank]
     private Task $task;
 
     #[ORM\Column(type: 'smallint', nullable: false)]
+    #[Assert\NotBlank]
     private int $assessment;
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
@@ -39,7 +43,7 @@ class TaskAssessment
     #[Gedmo\Timestampable(on: 'update')]
     private DateTime $updatedAt;
 
-    #[ORM\OneToMany(mappedBy: 'taskAssessment', targetEntity: SkillAssessment::class)]
+    #[ORM\OneToMany(mappedBy: 'taskAssessment', targetEntity: SkillAssessment::class, orphanRemoval: true)]
     private Collection $skillAssessments;
 
     public function __construct()
@@ -55,6 +59,7 @@ class TaskAssessment
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -66,6 +71,7 @@ class TaskAssessment
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -77,6 +83,7 @@ class TaskAssessment
     public function setTask(Task $task): self
     {
         $this->task = $task;
+
         return $this;
     }
 
@@ -88,6 +95,7 @@ class TaskAssessment
     public function setAssessment(int $assessment): self
     {
         $this->assessment = $assessment;
+
         return $this;
     }
 
@@ -99,6 +107,7 @@ class TaskAssessment
     public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
@@ -110,6 +119,7 @@ class TaskAssessment
     public function setUpdatedAt(DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
         return $this;
     }
 
@@ -121,6 +131,25 @@ class TaskAssessment
     public function setSkillAssessments(Collection $skillAssessments): self
     {
         $this->skillAssessments = $skillAssessments;
+
+        return $this;
+    }
+
+    public function addSkillAssessment(SkillAssessment $skillAssessment): self
+    {
+        if (!$this->skillAssessments->contains($skillAssessment)) {
+            $this->skillAssessments->add($skillAssessment);
+        }
+
+        return $this;
+    }
+
+    public function deleteSkillAssessment(SkillAssessment $skillAssessment): self
+    {
+        if ($this->skillAssessments->contains($skillAssessment)) {
+            $this->skillAssessments->remove($skillAssessment);
+        }
+
         return $this;
     }
 }

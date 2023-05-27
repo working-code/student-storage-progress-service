@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SkillAssessmentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'skill_assessment')]
 #[ORM\Entity(repositoryClass: SkillAssessmentRepository::class)]
@@ -18,13 +19,16 @@ class SkillAssessment
 
     #[ORM\ManyToOne(targetEntity: Skill::class, inversedBy: 'skillAssessments')]
     #[ORM\JoinColumn(name: 'skill_id', referencedColumnName: 'id', nullable: false)]
+    #[Assert\NotBlank]
     private Skill $skill;
 
     #[ORM\ManyToOne(targetEntity: TaskAssessment::class, inversedBy: 'skillAssessments')]
     #[ORM\JoinColumn(name: 'task_assessment_id', referencedColumnName: 'id', nullable: false)]
+    #[Assert\NotBlank]
     private TaskAssessment $taskAssessment;
 
     #[ORM\Column(type: 'smallint', nullable: false)]
+    #[Assert\NotNull]
     private int $skillValue;
 
     public function getId(): ?int
@@ -35,6 +39,7 @@ class SkillAssessment
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -46,6 +51,7 @@ class SkillAssessment
     public function setSkill(Skill $skill): self
     {
         $this->skill = $skill;
+
         return $this;
     }
 
@@ -57,6 +63,7 @@ class SkillAssessment
     public function setTaskAssessment(TaskAssessment $taskAssessment): self
     {
         $this->taskAssessment = $taskAssessment;
+
         return $this;
     }
 
@@ -68,6 +75,7 @@ class SkillAssessment
     public function setSkillValue(int $skillValue): self
     {
         $this->skillValue = $skillValue;
+
         return $this;
     }
 }

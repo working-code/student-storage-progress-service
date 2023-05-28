@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Security\UserRole;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Table(name: '`user`')]
+#[ORM\UniqueConstraint(name: 'user__email_unq', columns: ['email'])]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User
 {
@@ -27,8 +29,14 @@ class User
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
     private string $patronymic;
 
-    #[ORM\Column(type: 'string', length: 100, nullable: false)]
+    #[ORM\Column(type: 'string', length: 100, unique: true, nullable: false)]
     private string $email;
+
+    #[ORM\Column(type: 'json', length: 1024, nullable: false)]
+    private array $roles = [];
+
+    #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    private string $password;
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'create')]
@@ -158,6 +166,45 @@ class User
     public function setTaskAssessments(Collection $taskAssessments): self
     {
         $this->taskAssessments = $taskAssessments;
+
+        return $this;
+    }
+
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        $roles[] = UserRole::VIEW;
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getUserSkills(): Collection
+    {
+        return $this->userSkills;
+    }
+
+    public function setUserSkills(Collection $userSkills): self
+    {
+        $this->userSkills = $userSkills;
 
         return $this;
     }

@@ -55,6 +55,9 @@ class User
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserSkill::class)]
     private Collection $userSkills;
 
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: ApiToken::class)]
+    private ?ApiToken $apiToken;
+
     public function __construct()
     {
         $this->achievements = new ArrayCollection();
@@ -205,6 +208,18 @@ class User
     public function setUserSkills(Collection $userSkills): self
     {
         $this->userSkills = $userSkills;
+
+        return $this;
+    }
+
+    public function getApiToken(): ?ApiToken
+    {
+        return $this->apiToken;
+    }
+
+    public function setApiToken(?ApiToken $apiToken): self
+    {
+        $this->apiToken = $apiToken;
 
         return $this;
     }

@@ -13,10 +13,16 @@ security:
     jwt:
       pattern: ^/api/v1/user/login
       security: false
+    apiTokenLogin:
+      pattern: ^/api/v2/user/login
+      security: false
+    apiToken:
+      pattern: ^/api/v2/user
+      stateless: true
+      custom_authenticator: App\Security\ApiTokenAuthenticator
     main:
       lazy: true
       stateless: true
-      #      provider: users_in_memory
       custom_authenticator: App\Security\JWTAuthenticator
 
       # activate different ways to authenticate
@@ -31,6 +37,8 @@ security:
     - { path: ^/api/v1/user, roles: !php/const App\Security\UserRole::ADMIN }
     - { path: ^/api/v1, roles: [ !php/const App\Security\UserRole::ADMIN, !php/const App\Security\UserRole::TEACHER ], methods: [ POST, PATCH, DELETE ] }
     - { path: ^/api/v1, roles: [ !php/const App\Security\UserRole::ADMIN, !php/const App\Security\UserRole::TEACHER, !php/const App\Security\UserRole::VIEW ], methods: [ GET ] }
+    - { path: ^/api/v2/user, roles: [ !php/const App\Security\UserRole::ADMIN, !php/const App\Security\UserRole::TEACHER, !php/const App\Security\UserRole::VIEW ], methods: [ GET ] }
+    - { path: ^/api/v2/user, roles: [ !php/const App\Security\UserRole::ADMIN ], methods: [ POST, PATCH, DELETE ] }
 
 when@test:
   security:

@@ -2,8 +2,8 @@
 
 namespace App\Security;
 
+use App\Service\UserService;
 use Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface;
-use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTDecodeFailureException;
 use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\AuthorizationHeaderTokenExtractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,40 +13,37 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
-use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
 
-class JWTAuthenticator extends AbstractAuthenticator
+class ApiTokenAuthenticator extends AbstractAuthenticator
 {
-    public function __construct(private readonly JWTEncoderInterface $JWTEncoder)
+    public function __construct(
+        private readonly JWTEncoderInterface $JWTEncoder,
+        private readonly UserService         $userService,
+    )
     {
     }
 
-    public function supports(Request $request): ?bool
+    public function supports(Request $request): bool
     {
-        return $request->headers->has('Authorization');
+        return $request->headers->has('X-AUTH-TOKEN');
     }
 
-    /**
-     * @throws JWTDecodeFailureException
-     */
-    public function authenticate(Request $request): Passport
+    public function authenticate(Request $request)
     {
-        $extractor = new AuthorizationHeaderTokenExtractor('Bearer', 'Authorization');
+        $extractor = new AuthorizationHeaderTokenExtractor('', 'X-AUTH-TOKEN');
         $token = $extractor->extract($request);
 
         if ($token === null) {
-            throw new CustomUserMessageAuthenticationException('No JWT was provided');
-        }
-
-        $tokenData = $this->JWTEncoder->decode($token);
-
-        if (!isset($tokenData['email'])) {
-            throw new CustomUserMessageAuthenticationException('Invalid JWT');
+            throw new CustomUserMessageAuthenticationException('No API token was provided');
         }
 
         return new SelfValidatingPassport(
-            new UserBadge($tokenData['email'], static fn() => new AuthUser($tokenData))
+            new UserBadge($token, function (string $token) {
+                $user = $this->userService->findUserByToken($token);
+
+                return new AuthUser(['email' => $user->getEmail(), 'roles' => $user->getRoles()]);
+            })
         );
     }
 
@@ -57,6 +54,6 @@ class JWTAuthenticator extends AbstractAuthenticator
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
-        return new JsonResponse(['error' => 'Invalid JWT Token'], Response::HTTP_UNAUTHORIZED);
+        return new JsonResponse(['message' => 'Invalid API token'], Response::HTTP_FORBIDDEN);
     }
 }

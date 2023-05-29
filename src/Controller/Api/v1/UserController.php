@@ -8,9 +8,11 @@ use App\DTO\UserDTO;
 use App\Entity\User;
 use App\Exception\ValidationException;
 use App\Manager\UserManager;
+use App\Service\AuthService;
 use App\Service\UserService;
 use App\Symfony\MainParamConvertor;
 use Doctrine\ORM\EntityManagerInterface;
+use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTEncodeFailureException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -79,7 +81,7 @@ class UserController extends BaseController
         return $this->json([], Response::HTTP_OK);
     }
 
-    #[Route(name: '', methods: ['GET'])]
+    #[Route(path: '', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $countInPage = (int)$request->query->get('countInPage', static::DEFAULT_COUNT_IN_PAGE);
@@ -89,5 +91,29 @@ class UserController extends BaseController
         $data = ['users' => array_map(fn(User $user) => $this->userDTOBuilder->buildFromEntity($user), $users)];
 
         return $this->json($data, $data ? Response::HTTP_OK : Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @throws JWTEncodeFailureException
+     */
+    #[Route(path: '/login', methods: ['GET'])]
+    #[ParamConverter(
+        'userWrapperDTO',
+        options: [MainParamConvertor::GROUPS => UserDTO::LOGIN],
+        converter: MainParamConvertor::MAIN_CONVERTOR
+    )]
+    public function login(UserWrapperDTO $userWrapperDTO, AuthService $authService): Response
+    {
+        $user = $this->userService->findUserByEmail($userWrapperDTO->getUserDTO()->getEmail());
+
+        if ($user === null) {
+            return $this->json(['error' => 'Authorization required'], Response::HTTP_UNAUTHORIZED);
+        }
+
+        if (!$authService->isCredentialValid($user, $userWrapperDTO->getUserDTO()->getPassword())) {
+            return $this->json(['error' => 'Invalid email or password'], Response::HTTP_FORBIDDEN);
+        }
+
+        return $this->json(['JWT' => $authService->getJWTByUserDTO($user)], Response::HTTP_OK);
     }
 }

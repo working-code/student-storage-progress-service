@@ -43,12 +43,13 @@ class MainParamConvertor implements ParamConverterInterface
             return $this->throwException(new UnsupportedMediaTypeHttpException(), $configuration);
         }
 
+        $groups = $options[static::GROUPS] ?? [];
         $object = $this->serializer->deserialize(
             $request->getContent(),
             $configuration->getClass(),
             $format,
             [
-                static::GROUPS => $options[static::GROUPS] ?? [],
+                static::GROUPS => $groups,
             ]
         );
 
@@ -57,7 +58,7 @@ class MainParamConvertor implements ParamConverterInterface
         $options[static::VALIDATE] = $options[static::VALIDATE] ?? static::DEFAULT_VALIDATE;
 
         if ($options[static::VALIDATE]) {
-            $errors = $this->validator->validate($object);
+            $errors = $this->validator->validate($object, null, $groups);
 
             if (
                 isset($options[static::VALIDATION_ERRORS_ARGUMENT])

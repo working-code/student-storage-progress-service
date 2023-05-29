@@ -12,7 +12,7 @@ class UserWrapperDTO
     #[Assert\NotNull]
     #[Assert\Valid]
     #[SerializedName('user')]
-    #[Groups([UserDTO::DEFAULT])]
+    #[Groups([UserDTO::DEFAULT, UserDTO::LOGIN])]
     private ?UserDTO $userDTO;
 
     public function getUserDTO(): ?UserDTO

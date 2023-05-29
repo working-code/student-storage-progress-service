@@ -35,3 +35,7 @@ services:
     autoconfigure: true
     tags:
       - { name: request.param_converter, converter: !php/const App\Symfony\MainParamConvertor::MAIN_CONVERTOR }
+
+  App\Service\AuthService:
+    arguments:
+      $tokenTTL: '%env(JWT_TTL_SEC)%'

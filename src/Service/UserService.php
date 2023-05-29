@@ -78,6 +78,14 @@ class UserService
         return $userRepository->find($userId);
     }
 
+    public function findUserByEmail(string $email): ?User
+    {
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->em->getRepository(User::class);
+
+        return $userRepository->findOneBy(['email' => $email]);
+    }
+
     /**
      * @return User[]
      */

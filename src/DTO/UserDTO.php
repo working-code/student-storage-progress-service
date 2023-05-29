@@ -7,7 +7,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class UserDTO
 {
-    public const DEFAULT = 'user';
+    public const DEFAULT = 'user_default';
+    public const LOGIN = 'user_login';
 
     private ?int $id;
 
@@ -24,7 +25,7 @@ class UserDTO
     private ?string $patronymic;
 
     #[Assert\NotBlank]
-    #[Groups(self::DEFAULT)]
+    #[Groups([self::DEFAULT, self::LOGIN])]
     private ?string $email;
 
     private ?string $createdAt;
@@ -36,7 +37,7 @@ class UserDTO
     private ?array $roles;
 
     #[Assert\NotBlank]
-    #[Groups(self::DEFAULT)]
+    #[Groups([self::DEFAULT, self::LOGIN])]
     private ?string $password;
 
     public function getId(): ?int

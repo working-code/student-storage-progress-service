@@ -24,20 +24,8 @@ class ApiTokenManager
     public function save(ApiToken $apiToken): ApiToken
     {
         $this->em->persist($apiToken);
-
-        return $this->update($apiToken);
-    }
-
-    public function update(ApiToken $apiToken): ApiToken
-    {
         $this->em->flush();
 
         return $apiToken;
-    }
-
-    public function delete(ApiToken $apiToken): void
-    {
-        $this->em->remove($apiToken);
-        $this->em->flush();
     }
 }

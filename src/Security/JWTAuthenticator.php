@@ -24,7 +24,7 @@ class JWTAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): ?bool
     {
-        return $request->headers->has('Authorization');
+        return true;
     }
 
     /**

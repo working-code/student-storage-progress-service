@@ -3,9 +3,7 @@
 namespace App\Service;
 
 use App\DTO\UserDTO;
-use App\Entity\ApiToken;
 use App\Entity\User;
-use App\Exception\NotFoundException;
 use App\Exception\ValidationException;
 use App\Manager\UserManager;
 use App\Repository\UserRepository;
@@ -97,21 +95,5 @@ class UserService
         $userRepository = $this->em->getRepository(User::class);
 
         return $userRepository->getUsersWithOffset($numberPage, $countInPage);
-    }
-
-    /**
-     * @throws NotFoundException
-     */
-    public function findUserByToken(string $token): User
-    {
-        $apiTokenRepository = $this->em->getRepository(ApiToken::class);
-
-        $apiToken = $apiTokenRepository->findOneBy(['token' => $token]);
-
-        if (!$apiToken || !$apiToken->getUser()) {
-            throw new NotFoundException('User not found');
-        }
-
-        return $apiToken->getUser();
     }
 }

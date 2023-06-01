@@ -1,0 +1,56 @@
+security:
+  enable_authenticator_manager: true
+  # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+  password_hashers:
+    Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'bcrypt'
+  # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+  providers:
+    users_in_memory: { memory: null }
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    jwt:
+      pattern: ^/api/v1/user/login
+      security: false
+    main:
+      lazy: true
+      stateless: true
+      custom_authenticator: App\Security\JWTAuthenticator
+
+      # activate different ways to authenticate
+      # https://symfony.com/doc/current/security.html#the-firewall
+
+      # https://symfony.com/doc/current/security/impersonating_user.html
+      # switch_user: true
+
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    - { path: ^/api/v1/user, roles: !php/const App\Security\UserRole::ADMIN }
+    - { path: ^/api/v1, roles: [ !php/const App\Security\UserRole::TEACHER ], methods: [ POST, PATCH, DELETE ] }
+    - { path: ^/api/v1, roles: [ !php/const App\Security\UserRole::VIEW ], methods: [ GET ] }
+
+  role_hierarchy:
+    !php/const App\Security\UserRole::TEACHER: !php/const App\Security\UserRole::VIEW
+    !php/const App\Security\UserRole::ADMIN: !php/const App\Security\UserRole::TEACHER
+
+when@test:
+  security:
+    enable_authenticator_manager: true
+    providers:
+      users_in_memory:
+        memory:
+          users:
+            admin: { password: '$2y$13$.NaWbYabsSqQPigtxK8H7urtIVWPHUoUJpvfoBHf0j00iwJdBCRz.', roles: [ !php/const App\Security\UserRole::ADMIN ] }
+            student: { password: '$2y$13$.NaWbYabsSqQPigtxK8H7urtIVWPHUoUJpvfoBHf0j00iwJdBCRz.', roles: [ !php/const App\Security\UserRole::VIEW ] }
+            teacher: { password: '$2y$13$.NaWbYabsSqQPigtxK8H7urtIVWPHUoUJpvfoBHf0j00iwJdBCRz.', roles: [ !php/const App\Security\UserRole::TEACHER ] }
+
+    firewalls:
+      dev:
+        pattern: ^/api
+        provider: users_in_memory
+        http_basic:
+          realm: Secured Area
+        stateless: false
+        security: true

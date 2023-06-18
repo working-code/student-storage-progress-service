@@ -39,3 +39,10 @@ services:
   App\Service\AuthService:
     arguments:
       $tokenTTL: '%env(JWT_TTL_SEC)%'
+
+  App\Service\AsyncService:
+    calls:
+      - [
+        'addProducer',
+        [ !php/const App\Service\AsyncService::RECALCULATE_SKILLS_FOR_USER, '@old_sound_rabbit_mq.recalculate_skills_for_user_producer' ]
+      ]

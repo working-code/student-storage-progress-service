@@ -2,29 +2,34 @@
 
 namespace App\EventSubscriber;
 
+use App\DTO\Builder\RecalculateSkillsForUserDTOBuilder;
+use App\Entity\Skill;
 use App\Entity\SkillAssessment;
 use App\Entity\TaskAssessment;
+use App\Entity\User;
 use App\Event\CreatedTaskAssessmentEvent;
 use App\Event\DeletedTaskAssessmentEvent;
 use App\Event\UpdatedTaskAssessmentEvent;
-use App\Exception\EmptyValueException;
+use App\Exception\ValidationException;
 use App\Manager\SkillAssessmentManager;
 use App\Manager\TaskAssessmentManager;
+use App\Service\AsyncService;
 use App\Service\SkillAssessmentService;
 use App\Service\TaskAssessmentService;
 use App\Service\TaskSettingService;
-use App\Service\UserSkillService;
+use JsonException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class TaskAssessmentSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        private readonly TaskSettingService     $taskSettingService,
-        private readonly SkillAssessmentManager $skillAssessmentManager,
-        private readonly SkillAssessmentService $skillAssessmentService,
-        private readonly TaskAssessmentManager  $taskAssessmentManager,
-        private readonly TaskAssessmentService  $taskAssessmentService,
-        private readonly UserSkillService       $userSkillService,
+        private readonly TaskSettingService                 $taskSettingService,
+        private readonly SkillAssessmentManager             $skillAssessmentManager,
+        private readonly SkillAssessmentService             $skillAssessmentService,
+        private readonly TaskAssessmentManager              $taskAssessmentManager,
+        private readonly TaskAssessmentService              $taskAssessmentService,
+        private readonly AsyncService                       $asyncService,
+        private readonly RecalculateSkillsForUserDTOBuilder $recalculateSkillsForUserDTOBuilder,
     )
     {
     }
@@ -39,18 +44,31 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @throws EmptyValueException
+     * @throws JsonException
      */
     public function onDeletedTaskAssessment(DeletedTaskAssessmentEvent $deletedTaskAssessmentEvent): void
     {
-        $this->userSkillService->recalculateSkillsForUser(
+        $this->asyncRecalculateSkillsForUser(
             $deletedTaskAssessmentEvent->getUser(),
             $deletedTaskAssessmentEvent->getSkills()
         );
     }
 
     /**
-     * @throws EmptyValueException
+     * @param Skill[] $skills
+     * @throws JsonException
+     */
+    private function asyncRecalculateSkillsForUser(User $user, array $skills): void
+    {
+        $this->asyncService->publishToExchange(
+            AsyncService::RECALCULATE_SKILLS_FOR_USER,
+            $this->recalculateSkillsForUserDTOBuilder->buildFromUserAndSkills($user, $skills)->toAMQPMessage()
+        );
+    }
+
+    /**
+     * @throws JsonException
+     * @throws ValidationException
      */
     public function onCreatedTaskAssessment(CreatedTaskAssessmentEvent $createdTaskAssessmentEvent): void
     {
@@ -59,9 +77,12 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
         $this->taskAssessmentManager->update($taskAssessment);
 
         $skills = $this->taskAssessmentService->getSkillsByTaskAssessment($taskAssessment);
-        $this->userSkillService->recalculateSkillsForUser($taskAssessment->getUser(), $skills);
+        $this->asyncRecalculateSkillsForUser($taskAssessment->getUser(), $skills);
     }
 
+    /**
+     * @throws ValidationException
+     */
     private function createAndAddSkillAssessmentsByTaskAssessment(TaskAssessment $taskAssessment): void
     {
         $taskSettings = $this->taskSettingService->getTaskSettingsByTask($taskAssessment->getTask());
@@ -73,7 +94,8 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @throws EmptyValueException
+     * @throws JsonException
+     * @throws ValidationException
      */
     public function onUpdatedTaskAssessment(UpdatedTaskAssessmentEvent $updatedTaskAssessmentEvent): void
     {
@@ -91,17 +113,17 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
             $newSkills = $this->taskAssessmentService->getSkillsByTaskAssessment($taskAssessment);
 
             if ($isChangedUser) {
-                $this->userSkillService->recalculateSkillsForUser($oldTaskAssessment->getUser(), $oldSkills);
-                $this->userSkillService->recalculateSkillsForUser($taskAssessment->getUser(), $newSkills);
+                $this->asyncRecalculateSkillsForUser($oldTaskAssessment->getUser(), $oldSkills);
+                $this->asyncRecalculateSkillsForUser($taskAssessment->getUser(), $newSkills);
             } else {
                 $allSkills = array_merge($oldSkills, $newSkills);
-                $this->userSkillService->recalculateSkillsForUser($taskAssessment->getUser(), $allSkills);
+                $this->asyncRecalculateSkillsForUser($taskAssessment->getUser(), $allSkills);
             }
         } else {
             $this->recalculateCurrentSkillAssessmentsByTaskAssessment($taskAssessment);
 
             $skills = $this->taskAssessmentService->getSkillsByTaskAssessment($taskAssessment);
-            $this->userSkillService->recalculateSkillsForUser($taskAssessment->getUser(), $skills);
+            $this->asyncRecalculateSkillsForUser($taskAssessment->getUser(), $skills);
         }
 
         $this->taskAssessmentManager->update($taskAssessment);

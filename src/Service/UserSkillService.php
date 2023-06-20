@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use App\DTO\Builder\UserSkillDTOBuilder;
+use App\DTO\Output\UserSkillDTO;
 use App\Entity\Skill;
 use App\Entity\User;
 use App\Entity\UserSkill;
@@ -9,14 +11,43 @@ use App\Exception\EmptyValueException;
 use App\Manager\UserSkillManager;
 use App\Repository\UserSkillRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Cache\InvalidArgumentException;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 class UserSkillService
 {
     public function __construct(
         private readonly EntityManagerInterface $em,
         private readonly UserSkillManager       $userSkillManager,
+        private readonly TagAwareCacheInterface $cache,
+        private readonly UserSkillDTOBuilder    $userSkillDTOBuilder,
     )
     {
+    }
+
+    /**
+     * @return UserSkillDTO[]
+     * @throws InvalidArgumentException
+     */
+    public function getUserSkillByUser(User $user): array
+    {
+        $userSkillRepository = $this->em->getRepository(UserSkill::class);
+
+        return $this->cache->get(
+            "user_{$user->getId()}_skills",
+            function (ItemInterface $item) use ($userSkillRepository, $user) {
+                $userSkills = $userSkillRepository->findBy(['user' => $user]);
+                $userSkills = array_map(
+                    fn(UserSkill $userSkill) => $this->userSkillDTOBuilder->buildFromEntity($userSkill),
+                    $userSkills
+                );
+                $item->set($userSkills);
+                $item->tag(Cache::CACHE_TAG_USER_SKILLS . "{$user->getId()}");
+
+                return $userSkills;
+            }
+        );
     }
 
     /**

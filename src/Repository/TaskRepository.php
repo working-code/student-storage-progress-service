@@ -19,6 +19,8 @@ class TaskRepository extends EntityRepository
             ->setMaxResults($countInPage)
             ->addOrderBy('t.id', 'ASC');
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery()
+            ->enableResultCache(300, "task{$taskType->value}_{$numberPage}_{$countInPage}")
+            ->getResult();
     }
 }

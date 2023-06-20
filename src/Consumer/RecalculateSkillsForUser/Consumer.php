@@ -4,6 +4,7 @@ namespace App\Consumer\RecalculateSkillsForUser;
 
 use App\Consumer\RecalculateSkillsForUser\Input\Message;
 use App\Entity\User;
+use App\Service\Cache;
 use App\Service\SkillService;
 use App\Service\UserService;
 use App\Service\UserSkillService;
@@ -11,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Throwable;
 
 class Consumer implements ConsumerInterface
@@ -21,6 +23,7 @@ class Consumer implements ConsumerInterface
         private readonly UserSkillService       $userSkillService,
         private readonly UserService            $userService,
         private readonly SkillService           $skillService,
+        private readonly TagAwareCacheInterface $cache,
     )
     {
     }
@@ -48,6 +51,7 @@ class Consumer implements ConsumerInterface
             }
 
             $this->userSkillService->recalculateSkillsForUser($user, $skills);
+            $this->cache->invalidateTags([Cache::CACHE_TAG_USER_SKILLS . $user->getId()]);
         } catch (Throwable $exception) {
             return $this->reject($exception->getMessage());
         } finally {

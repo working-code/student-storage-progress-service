@@ -74,4 +74,16 @@ class SkillService
 
         return $skillRepository->find($id);
     }
+
+    /**
+     * @param int[] $ids
+     * @return Skill[]
+     */
+    public function findSkillsByIds(array $ids): array
+    {
+        /** @var SkillRepository $skillRepository */
+        $skillRepository = $this->em->getRepository(Skill::class);
+
+        return $skillRepository->findBy(['id' => $ids]);
+    }
 }

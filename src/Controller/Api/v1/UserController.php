@@ -4,15 +4,19 @@ namespace App\Controller\Api\v1;
 
 use App\DTO\Builder\UserDTOBuilder;
 use App\DTO\Input\UserWrapperDTO;
+use App\DTO\Output\UserSkillDTO;
+use App\DTO\SkillDTO;
 use App\DTO\UserDTO;
 use App\Entity\User;
 use App\Exception\ValidationException;
 use App\Manager\UserManager;
 use App\Service\AuthService;
 use App\Service\UserService;
+use App\Service\UserSkillService;
 use App\Symfony\MainParamConvertor;
 use Doctrine\ORM\EntityManagerInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTEncodeFailureException;
+use Psr\Cache\InvalidArgumentException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -115,5 +119,20 @@ class UserController extends BaseController
         }
 
         return $this->json(['JWT' => $authService->getJWTByUserDTO($user)], Response::HTTP_OK);
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    #[Route(path: '/{id}/skills', requirements: ['id' => '\d+'], methods: ['GET'])]
+    #[ParamConverter('user')]
+    public function getListSkills(User $user, UserSkillService $userSkillService): Response
+    {
+        return $this->json(
+            ['skills' => $userSkillService->getUserSkillByUser($user)],
+            Response::HTTP_OK,
+            [],
+            ['groups' => [UserSkillDTO::SKILL_WITH_VALUE, SkillDTO::DEFAULT]]
+        );
     }
 }

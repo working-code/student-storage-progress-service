@@ -28,8 +28,9 @@ class SkillService
         $skill = $this->skillManager->create($skillDTO->getName());
 
         $this->checkExistErrorsValidation($skill);
+        $this->skillManager->emFlush();
 
-        return $this->skillManager->save($skill);
+        return $skill;
     }
 
     /**
@@ -49,11 +50,12 @@ class SkillService
      */
     public function updateSkillBySkillDTO(Skill $skill, SkillDTO $skillDTO): ?Skill
     {
-        $skill->setName($skillDTO->getName());
+        $this->skillManager->update($skill, $skillDTO->getName());
 
         $this->checkExistErrorsValidation($skill);
+        $this->skillManager->emFlush();
 
-        return $this->skillManager->update($skill);
+        return $skill;
     }
 
     /**

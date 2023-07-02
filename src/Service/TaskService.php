@@ -15,7 +15,12 @@ class TaskService extends BaseTaskService
      */
     public function createTaskFromTaskDTO(TaskDTO $taskDTO): Task
     {
-        return $this->createFromTaskDTO($taskDTO, TaskType::Task);
+        $task = $this->taskManager->create($taskDTO->getTitle(), $taskDTO->getContent());
+
+        $this->checkExistErrorsValidation($task);
+        $this->taskManager->emFlush();
+
+        return $task;
     }
 
     public function findTaskById(int $id): ?Task

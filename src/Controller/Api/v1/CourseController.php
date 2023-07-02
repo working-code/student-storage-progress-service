@@ -48,7 +48,7 @@ class CourseController extends BaseController
 
         return $course
             ? $this->json(['course' => $this->courseDTOBuilder->buildFromEntity($course)], Response::HTTP_OK)
-            : $this->json([], Response::HTTP_NOT_FOUND);
+            : $this->json(['description' => 'object not found'], Response::HTTP_NOT_FOUND);
     }
 
     #[Route('/{id}', requirements: ['id' => '\d+'], methods: ['PATCH'])]
@@ -74,7 +74,8 @@ class CourseController extends BaseController
     public function delete(int $id, CourseManager $courseManager): Response
     {
         if ($course = $this->courseService->findCourseById($id)) {
-            $courseManager->delete($course);
+            $courseManager->delete($course)
+                ->emFlush();
         }
 
         return $this->json([], $course ? Response::HTTP_OK : Response::HTTP_NOT_FOUND);

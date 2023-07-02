@@ -4,58 +4,28 @@ namespace App\Service;
 
 use App\DTO\Input\LessonWrapperDTO;
 use App\DTO\LessonDTO;
-use App\DTO\TaskDTO;
 use App\Entity\Enums\TaskType;
 use App\Entity\Task;
 use App\Exception\ValidationException;
+use App\Manager\CourseManager;
+use App\Manager\LessonManager;
+use App\Manager\TaskManager;
 use App\Repository\TaskRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class LessonService extends BaseTaskService
 {
-    /**
-     * @throws ValidationException
-     */
-    public function createLessonWithTasksFromLessonDTO(LessonDTO $lessonDTO): Task
+    public function __construct(
+        protected readonly TaskManager            $taskManager,
+        protected readonly LessonManager          $lessonManager,
+        protected readonly CourseManager          $courseManager,
+        protected readonly EntityManagerInterface $em,
+        protected readonly ValidatorInterface     $validator,
+        private readonly TaskService              $taskService,
+
+    )
     {
-        $lesson = $this->createFromTaskDTO($lessonDTO, TaskType::Lesson, false);
-
-        foreach ($lessonDTO->getTasks() as $taskDTO) {
-            $task = $this->createFromTaskDTO($taskDTO, TaskType::Task);
-            $lesson->addChildren($task);
-        }
-
-        return $this->lessonManager->save($lesson);
-    }
-
-    /**
-     * @throws ValidationException
-     */
-    public function updateLessonWithTasksByLessonDTO(Task $lesson, LessonDTO $lessonDTO): Task
-    {
-        $lesson = $this->updateFromTaskDTO($lesson, $lessonDTO, false);
-        $tasks = array_combine(
-            array_map(static fn(TaskDTO $taskDTO) => $taskDTO->getId(), $lessonDTO->getTasks()),
-            $lessonDTO->getTasks()
-        );
-
-        foreach ($lesson->getChildren() as $task) {
-            /** @var Task $task */
-            $taskDTO = $tasks[$task->getId()];
-            $task->setTitle($taskDTO->getTitle())
-                ->setContent($taskDTO->getContent());
-        }
-
-        return $this->lessonManager->update($lesson);
-    }
-
-    public function deleteLessonWithTasks(Task $lesson): void
-    {
-        foreach ($lesson->getChildren() as $task) {
-            $lesson->deleteChildren($task);
-            $this->taskManager->delete($task);
-        }
-
-        $this->lessonManager->delete($lesson);
     }
 
     /**
@@ -63,14 +33,28 @@ class LessonService extends BaseTaskService
      */
     public function createLessonFromLessonWrapperDTO(LessonWrapperDTO $lessonWrapperDTO): Task
     {
-        $lesson = $this->createFromTaskDTO($lessonWrapperDTO->getLessonDTO(), TaskType::Lesson, false);
+        $lesson = $this->createFromLessonDTO($lessonWrapperDTO->getLessonDTO());
         $tasks = $this->findByIds($lessonWrapperDTO->getTaskIds(), TaskType::Task);
 
         foreach ($tasks as $task) {
             $lesson->addChildren($task);
         }
 
-        return $this->taskManager->save($lesson);
+        $this->taskManager->emFlush();
+
+        return $lesson;
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    private function createFromLessonDTO(LessonDTO $lessonDTO): Task
+    {
+        $lesson = $this->lessonManager->create($lessonDTO->getTitle(), $lessonDTO->getContent());
+
+        $this->checkExistErrorsValidation($lesson);
+
+        return $lesson;
     }
 
     public function findLessonById(int $id): ?Task
@@ -86,7 +70,7 @@ class LessonService extends BaseTaskService
      */
     public function updateLessonFromLessonWrapperDTO(Task $lesson, LessonWrapperDTO $lessonWrapperDTO): Task
     {
-        $lesson = $this->updateFromTaskDTO($lesson, $lessonWrapperDTO->getLessonDTO(), false);
+        $lesson = $this->updateFromLessonDTO($lesson, $lessonWrapperDTO->getLessonDTO());
         $lessonTasks = $lesson->getChildren()->filter(
             fn(Task $task) => in_array($task->getId(), $lessonWrapperDTO->getTaskIds())
         );
@@ -105,7 +89,17 @@ class LessonService extends BaseTaskService
             }
         }
 
-        return $this->taskManager->update($lesson);
+        $this->taskManager->emFlush();
+
+        return $lesson;
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    private function updateFromLessonDTO(Task $lesson, LessonDTO $lessonDTO): Task
+    {
+        return $this->updateFromTaskDTO($lesson, $lessonDTO);
     }
 
     public function getLessonWithOffset(int $numberPage, int $countInPage): array

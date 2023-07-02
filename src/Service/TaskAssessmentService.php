@@ -43,7 +43,7 @@ class TaskAssessmentService
         $taskAssessment = $this->taskAssessmentManager->create($task, $taskAssessmentDTO->getAssessment(), $user);
 
         $this->checkExistErrorsValidation($taskAssessment);
-        $this->taskAssessmentManager->save($taskAssessment);
+        $this->taskAssessmentManager->emFlush();
         $this->eventDispatcher->dispatch(new CreatedTaskAssessmentEvent($taskAssessment));
 
         return $taskAssessment;
@@ -107,7 +107,7 @@ class TaskAssessmentService
             ->setAssessment($taskAssessmentDTO->getAssessment());
 
         $this->checkExistErrorsValidation($taskAssessment);
-        $this->taskAssessmentManager->update($taskAssessment);
+        $this->taskAssessmentManager->emFlush();
         $this->eventDispatcher->dispatch(new UpdatedTaskAssessmentEvent($taskAssessment, $oldTaskAssessment));
 
         return $taskAssessment;
@@ -127,7 +127,8 @@ class TaskAssessmentService
             $taskAssessment->getUser(),
             $this->getSkillsByTaskAssessment($taskAssessment)
         );
-        $this->taskAssessmentManager->delete($taskAssessment);
+        $this->taskAssessmentManager->delete($taskAssessment)
+            ->emFlush();
         $this->eventDispatcher->dispatch($deletedTaskAssessmentEvent);
     }
 

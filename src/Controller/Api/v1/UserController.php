@@ -80,7 +80,8 @@ class UserController extends BaseController
     #[ParamConverter('user')]
     public function delete(User $user, UserManager $userManager): Response
     {
-        $userManager->delete($user);
+        $userManager->delete($user)
+            ->emFlush();
 
         return $this->json([], Response::HTTP_OK);
     }

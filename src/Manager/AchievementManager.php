@@ -15,29 +15,30 @@ class AchievementManager
 
     public function create(string $title, string $description): Achievement
     {
-        return (new Achievement())
+        $achievement = (new Achievement())
             ->setTitle($title)
+            ->setDescription($description);
+
+        $this->em->persist($achievement);
+
+        return $achievement;
+    }
+
+    public function update(Achievement $achievement, string $title, string $description): void
+    {
+        $achievement->setTitle($title)
             ->setDescription($description);
     }
 
-    public function save(Achievement $achievement): Achievement
-    {
-        $this->em->persist($achievement);
-        $this->em->flush();
-
-        return $achievement;
-    }
-
-    public function update(Achievement $achievement): Achievement
-    {
-        $this->em->flush();
-
-        return $achievement;
-    }
-
-    public function delete(Achievement $achievement): void
+    public function delete(Achievement $achievement): self
     {
         $this->em->remove($achievement);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

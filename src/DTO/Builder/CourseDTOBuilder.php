@@ -22,4 +22,18 @@ class CourseDTOBuilder
                 $course->getChildren()->toArray()
             ));
     }
+
+    public function buildFromArray(array $data): CourseDTO
+    {
+        $courseDTO = new CourseDTO();
+
+        if (isset($data['title'])) {
+            $courseDTO->setTitle($data['title']);
+        }
+        if (isset($data['content'])) {
+            $courseDTO->setContent($data['content']);
+        }
+
+        return $courseDTO;
+    }
 }

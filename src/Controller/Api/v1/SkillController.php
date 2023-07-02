@@ -73,7 +73,8 @@ class SkillController extends BaseController
     #[ParamConverter('skill')]
     public function delete(Skill $skill, SkillManager $skillManager): Response
     {
-        $skillManager->delete($skill);
+        $skillManager->delete($skill)
+            ->emFlush();
 
         return $this->json([], Response::HTTP_OK);
     }

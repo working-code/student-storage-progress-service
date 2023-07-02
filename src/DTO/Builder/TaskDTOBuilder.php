@@ -14,4 +14,18 @@ class TaskDTOBuilder
             ->setTitle($task->getTitle())
             ->setContent($task->getContent());
     }
+
+    public function buildFromArray(array $data): TaskDTO
+    {
+        $taskDTO = new TaskDTO();
+
+        if (isset($data['title'])) {
+            $taskDTO->setTitle($data['title']);
+        }
+        if (isset($data['content'])) {
+            $taskDTO->setContent($data['content']);
+        }
+
+        return $taskDTO;
+    }
 }

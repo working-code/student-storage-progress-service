@@ -53,12 +53,17 @@ class MainParamConvertor implements ParamConverterInterface
             ]
         );
 
+
         $request->attributes->set($configuration->getName(), $object);
 
         $options[static::VALIDATE] = $options[static::VALIDATE] ?? static::DEFAULT_VALIDATE;
 
         if ($options[static::VALIDATE]) {
             $errors = $this->validator->validate($object, null, $groups);
+
+            if ($errors->count() <= 0) {
+                $errors = $this->validator->validate($object);
+            }
 
             if (
                 isset($options[static::VALIDATION_ERRORS_ARGUMENT])

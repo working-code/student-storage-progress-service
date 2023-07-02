@@ -9,7 +9,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
+#[UniqueEntity('email')]
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'user__email_unq', columns: ['email'])]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -20,21 +23,27 @@ class User
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
     private string $surname;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
     private string $name;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
     private string $patronymic;
 
+    #[Assert\Email]
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 100, unique: true, nullable: false)]
     private string $email;
 
     #[ORM\Column(type: 'json', length: 1024, nullable: false)]
     private array $roles = [];
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
     private string $password;
 
@@ -168,6 +177,11 @@ class User
         $this->taskAssessments = $taskAssessments;
 
         return $this;
+    }
+
+    public function hasRole(string $role): bool
+    {
+        return in_array($role, $this->getRoles());
     }
 
     public function getRoles(): array

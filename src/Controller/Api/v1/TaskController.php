@@ -48,7 +48,7 @@ class TaskController extends BaseController
 
         return $task
             ? $this->json(['task' => $this->taskDTOBuilder->buildFromEntity($task)], Response::HTTP_OK)
-            : $this->json([], Response::HTTP_NOT_FOUND);
+            : $this->json(['description' => 'object not found'], Response::HTTP_NOT_FOUND);
     }
 
     /**
@@ -77,7 +77,8 @@ class TaskController extends BaseController
     public function delete(int $id, TaskManager $taskManager): Response
     {
         if ($task = $this->taskService->findTaskById($id)) {
-            $taskManager->delete($task);
+            $taskManager->delete($task)
+                ->emFlush();
         }
 
         return $this->json([], $task ? Response::HTTP_OK : Response::HTTP_NOT_FOUND);

@@ -22,7 +22,30 @@ class UserManager
         string $password,
     ): User
     {
-        return (new User())
+        $user = (new User())
+            ->setSurname($surname)
+            ->setName($name)
+            ->setPatronymic($patronymic)
+            ->setEmail($email)
+            ->setRoles($roles)
+            ->setPassword($password);
+
+        $this->em->persist($user);
+
+        return $user;
+    }
+
+    public function update(
+        User   $user,
+        string $surname,
+        string $name,
+        string $patronymic,
+        string $email,
+        array  $roles,
+        string $password,
+    ): void
+    {
+        $user
             ->setSurname($surname)
             ->setName($name)
             ->setPatronymic($patronymic)
@@ -31,23 +54,15 @@ class UserManager
             ->setPassword($password);
     }
 
-    public function save(User $user): User
-    {
-        $this->em->persist($user);
-
-        return $this->update($user);
-    }
-
-    public function update(User $user): User
-    {
-        $this->em->flush();
-
-        return $user;
-    }
-
-    public function delete(User $user): void
+    public function delete(User $user): self
     {
         $this->em->remove($user);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

@@ -15,28 +15,28 @@ class SkillManager
 
     public function create(string $name): Skill
     {
-        return (new Skill())
+        $skill = (new Skill())
             ->setName($name);
-    }
 
-    public function save(Skill $skill): Skill
-    {
         $this->em->persist($skill);
-        $this->em->flush();
 
         return $skill;
     }
 
-    public function update(Skill $skill): Skill
+    public function update(Skill $skill, string $name): void
     {
-        $this->em->flush();
-
-        return $skill;
+        $skill->setName($name);
     }
 
-    public function delete(Skill $skill): void
+    public function delete(Skill $skill): self
     {
         $this->em->remove($skill);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

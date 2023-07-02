@@ -25,6 +25,7 @@ class UserDTO
     private ?string $patronymic;
 
     #[Assert\NotBlank]
+    #[Assert\Email(mode: 'html5')]
     #[Groups([self::DEFAULT, self::LOGIN])]
     private ?string $email;
 

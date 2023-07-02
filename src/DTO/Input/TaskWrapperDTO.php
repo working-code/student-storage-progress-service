@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 class TaskWrapperDTO
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     #[Assert\Valid]
     #[SerializedName('task')]
     #[Groups(TaskDTO::DEFAULT)]

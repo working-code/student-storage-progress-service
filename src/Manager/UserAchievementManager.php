@@ -17,29 +17,24 @@ class UserAchievementManager
 
     public function create(User $user, Achievement $achievement): UserAchievement
     {
-        return (new UserAchievement())
+        $userAchievement = (new UserAchievement())
             ->setUser($user)
             ->setAchievement($achievement);
-    }
 
-    public function save(UserAchievement $userAchievement): UserAchievement
-    {
         $this->em->persist($userAchievement);
-        $this->em->flush();
 
         return $userAchievement;
     }
 
-    public function update(UserAchievement $userAchievement): UserAchievement
-    {
-        $this->em->flush();
-
-        return $userAchievement;
-    }
-
-    public function delete(UserAchievement $userAchievement): void
+    public function delete(UserAchievement $userAchievement): self
     {
         $this->em->remove($userAchievement);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

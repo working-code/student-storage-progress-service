@@ -17,30 +17,25 @@ class UserSkillManager
 
     public function create(User $user, Skill $skill, int $value): UserSkill
     {
-        return (new UserSkill())
+        $userSkill = (new UserSkill())
             ->setUser($user)
             ->setSkill($skill)
             ->setValue($value);
-    }
 
-    public function save(UserSkill $userSkill): UserSkill
-    {
         $this->em->persist($userSkill);
-        $this->em->flush();
 
         return $userSkill;
     }
 
-    public function update(UserSkill $userSkill): UserSkill
-    {
-        $this->em->flush();
-
-        return $userSkill;
-    }
-
-    public function delete(UserSkill $userSkill): void
+    public function delete(UserSkill $userSkill): self
     {
         $this->em->remove($userSkill);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

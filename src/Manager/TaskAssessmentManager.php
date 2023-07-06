@@ -17,30 +17,38 @@ class TaskAssessmentManager
 
     public function create(Task $task, int $assessment, User $user): TaskAssessment
     {
-        return (new TaskAssessment())
+        $taskAssessment = (new TaskAssessment())
             ->setUser($user)
             ->setTask($task)
             ->setAssessment($assessment);
-    }
 
-    public function save(TaskAssessment $taskAssessment): TaskAssessment
-    {
         $this->em->persist($taskAssessment);
-        $this->em->flush();
 
         return $taskAssessment;
     }
 
-    public function update(TaskAssessment $taskAssessment): TaskAssessment
-    {
-        $this->em->flush();
+    //public function update(
+    //    TaskAssessment $taskAssessment,
+    //    Task           $task,
+    //    int            $assessment,
+    //    User           $user
+    //): TaskAssessment
+    //{
+    //    return $taskAssessment
+    //        ->setTask($task)
+    //        ->setAssessment($assessment)
+    //        ->setUser($user);
+    //}
 
-        return $taskAssessment;
-    }
-
-    public function delete(TaskAssessment $taskAssessment): void
+    public function delete(TaskAssessment $taskAssessment): self
     {
         $this->em->remove($taskAssessment);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

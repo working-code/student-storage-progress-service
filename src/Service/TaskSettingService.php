@@ -40,8 +40,9 @@ class TaskSettingService
 
         $taskSetting = $this->taskSettingManager->create($task, $skill, $taskSettingDTO->getSkillValue());
         $this->checkExistErrorsValidation($taskSetting);
+        $this->taskSettingManager->emFlush();
 
-        return $this->taskSettingManager->save($taskSetting);
+        return $taskSetting;
     }
 
     /**
@@ -72,13 +73,12 @@ class TaskSettingService
             throw new NotFoundException();
         }
 
-        $taskSetting
-            ->setTask($task)
-            ->setSkill($skill)
-            ->setValuePercentage($taskSettingDTO->getSkillValue());
-        $this->checkExistErrorsValidation($taskSetting);
+        $this->taskSettingManager->update($taskSetting, $task, $skill, $taskSettingDTO->getSkillValue());
 
-        return $this->taskSettingManager->update($taskSetting);
+        $this->checkExistErrorsValidation($taskSetting);
+        $this->taskSettingManager->emFlush();
+
+        return $taskSetting;
     }
 
     public function getTaskSettingWithOffset(int $numberPage, int $countInPage): array

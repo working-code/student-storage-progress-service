@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\DTO\CourseDTO;
 use App\DTO\Input\CourseDTOWrapper;
 use App\Entity\Enums\TaskType;
 use App\Entity\Task;
@@ -15,14 +16,28 @@ class CourseService extends BaseTaskService
      */
     public function createCourseFromCourseWrapperDTO(CourseDTOWrapper $courseDTOWrapper): Task
     {
-        $course = $this->createFromTaskDTO($courseDTOWrapper->getCourseDTO(), TaskType::Course, false);
+        $course = $this->createFromCourseDTO($courseDTOWrapper->getCourseDTO());
         $lessons = $this->findByIds($courseDTOWrapper->getLessonIds(), TaskType::Lesson);
 
         foreach ($lessons as $lesson) {
             $course->addChildren($lesson);
         }
 
-        return $this->taskManager->save($course);
+        $this->taskManager->emFlush();
+
+        return $course;
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    private function createFromCourseDTO(CourseDTO $courseDTO): Task
+    {
+        $course = $this->courseManager->create($courseDTO->getTitle(), $courseDTO->getContent());
+
+        $this->checkExistErrorsValidation($course);
+
+        return $course;
     }
 
     public function findCourseById(int $id): ?Task
@@ -38,7 +53,7 @@ class CourseService extends BaseTaskService
      */
     public function updateCourseFromCourseWrapperDTO(Task $course, CourseDTOWrapper $courseDTOWrapper): Task
     {
-        $course = $this->updateFromTaskDTO($course, $courseDTOWrapper->getCourseDTO(), false);
+        $course = $this->updateFromCourseDTO($course, $courseDTOWrapper->getCourseDTO());
         $courseLessons = $course->getChildren()->filter(
             fn(Task $course) => in_array($course->getId(), $courseDTOWrapper->getLessonIds())
         );
@@ -57,7 +72,17 @@ class CourseService extends BaseTaskService
             }
         }
 
-        return $this->taskManager->save($course);
+        $this->taskManager->emFlush();
+
+        return $course;
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    private function updateFromCourseDTO(Task $course, CourseDTO $courseDTO): Task
+    {
+        return $this->updateFromTaskDTO($course, $courseDTO);
     }
 
     public function getCourseWithOffset(int $numberPage, int $countInPage): array

@@ -17,30 +17,33 @@ class TaskSettingManager
 
     public function create(Task $task, Skill $skill, int $value): TaskSetting
     {
-        return (new TaskSetting())
+        $taskSetting = (new TaskSetting())
+            ->setTask($task)
+            ->setSkill($skill)
+            ->setValuePercentage($value);
+
+        $this->em->persist($taskSetting);
+
+        return $taskSetting;
+    }
+
+    public function update(TaskSetting $taskSetting, Task $task, Skill $skill, int $value): void
+    {
+        $taskSetting
             ->setTask($task)
             ->setSkill($skill)
             ->setValuePercentage($value);
     }
 
-    public function save(TaskSetting $taskSetting): TaskSetting
-    {
-        $this->em->persist($taskSetting);
-        $this->em->flush();
-
-        return $taskSetting;
-    }
-
-    public function update(TaskSetting $taskSetting): TaskSetting
-    {
-        $this->em->flush();
-
-        return $taskSetting;
-    }
-
-    public function delete(TaskSetting $taskSetting): void
+    public function delete(TaskSetting $taskSetting): self
     {
         $this->em->remove($taskSetting);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 }

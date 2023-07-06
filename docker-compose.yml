@@ -130,10 +130,28 @@ services:
       student-storage-progress:
         ipv4_address: 172.100.0.10
 
+  postgres_test:
+    image: postgres:15
+    ports:
+      - "15433:5432"
+    working_dir: /app
+    environment:
+      POSTGRES_DB: 'student_storage_progress_test'
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'password'
+    volumes:
+      - dump_test:/app/dump
+      - postgresql_test:/var/lib/postgresql/data
+    networks:
+      student-storage-progress:
+        ipv4_address: 172.100.0.11
+
 volumes:
   dump:
   postgresql:
   sentry-pgdb:
+  dump_test:
+  postgresql_test:
 
 networks:
   student-storage-progress:

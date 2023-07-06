@@ -32,8 +32,9 @@ class SkillAssessmentService
             $this->calculateSkillValue($taskAssessment, $taskSetting)
         );
         $this->checkExistErrorsValidation($skillAssessment);
+        $this->skillAssessmentManager->emFlush();
 
-        return $this->skillAssessmentManager->save($skillAssessment);
+        return $skillAssessment;
     }
 
     public function calculateSkillValue(TaskAssessment $taskAssessment, TaskSetting $taskSetting): int

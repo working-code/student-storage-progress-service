@@ -24,4 +24,18 @@ class LessonDTOBuilder
                 $lesson->getChildren()->toArray()
             ));
     }
+
+    public function buildFromArray(array $data): LessonDTO
+    {
+        $lessonDTO = new LessonDTO();
+
+        if (isset($data['title'])) {
+            $lessonDTO->setTitle($data['title']);
+        }
+        if (isset($data['content'])) {
+            $lessonDTO->setContent($data['content']);
+        }
+
+        return $lessonDTO;
+    }
 }

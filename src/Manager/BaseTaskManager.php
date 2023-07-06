@@ -14,32 +14,34 @@ abstract class BaseTaskManager
     {
     }
 
-    public function save(Task $task): Task
+    public function update(Task $task, string $title, string $content): void
     {
-        $this->em->persist($task);
-        $this->em->flush();
-
-        return $task;
+        $task
+            ->setTitle($title)
+            ->setContent($content);
     }
 
-    public function update(Task $task): Task
-    {
-        $this->em->flush();
-
-        return $task;
-    }
-
-    public function delete(Task $task): void
+    public function delete(Task $task): self
     {
         $this->em->remove($task);
+
+        return $this;
+    }
+
+    public function emFlush(): void
+    {
         $this->em->flush();
     }
 
     protected function createTask(string $title, string $content, TaskType $type): Task
     {
-        return (new Task())
+        $task = (new Task())
             ->setTitle($title)
             ->setContent($content)
             ->setType($type);
+
+        $this->em->persist($task);
+
+        return $task;
     }
 }

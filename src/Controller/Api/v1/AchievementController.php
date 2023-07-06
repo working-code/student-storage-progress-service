@@ -33,11 +33,12 @@ class AchievementController extends BaseController
         $countInPage = $request->query->get('countInPage', static::DEFAULT_COUNT_IN_PAGE);
 
         $achievements = $achievementService->getAchievementsWithOffset($numberPage, $countInPage);
-        $data = ['achievements' => array_map(
+
+        $data = array_map(
             fn(Achievement $achievement) => $this->achievementDTOBuilder->buildFromEntity($achievement),
             $achievements
-        )];
+        );
 
-        return $this->json($data, $data ? Response::HTTP_OK : Response::HTTP_NO_CONTENT);
+        return $this->json(['achievements' => $data], $data ? Response::HTTP_OK : Response::HTTP_NO_CONTENT);
     }
 }

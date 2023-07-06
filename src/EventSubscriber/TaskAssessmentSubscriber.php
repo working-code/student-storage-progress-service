@@ -74,7 +74,7 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
     {
         $taskAssessment = $createdTaskAssessmentEvent->getTaskAssessment();
         $this->createAndAddSkillAssessmentsByTaskAssessment($taskAssessment);
-        $this->taskAssessmentManager->update($taskAssessment);
+        $this->taskAssessmentManager->emFlush();
 
         $skills = $this->taskAssessmentService->getSkillsByTaskAssessment($taskAssessment);
         $this->asyncRecalculateSkillsForUser($taskAssessment->getUser(), $skills);
@@ -126,7 +126,7 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
             $this->asyncRecalculateSkillsForUser($taskAssessment->getUser(), $skills);
         }
 
-        $this->taskAssessmentManager->update($taskAssessment);
+        $this->taskAssessmentManager->emFlush();
     }
 
     private function recalculateCurrentSkillAssessmentsByTaskAssessment(TaskAssessment $taskAssessment): void
@@ -141,7 +141,7 @@ class TaskAssessmentSubscriber implements EventSubscriberInterface
             $skillAssessment->setSkillValue(
                 $this->skillAssessmentService->calculateSkillValue($taskAssessment, $taskSetting)
             );
-            $this->skillAssessmentManager->update($skillAssessment);
+            $this->skillAssessmentManager->emFlush();
         }
     }
 }

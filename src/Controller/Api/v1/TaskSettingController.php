@@ -80,7 +80,8 @@ class TaskSettingController extends BaseController
     #[ParamConverter('taskSetting')]
     public function delete(TaskSetting $taskSetting, TaskSettingManager $taskSettingManager): Response
     {
-        $taskSettingManager->delete($taskSetting);
+        $taskSettingManager->delete($taskSetting)
+            ->emFlush();
 
         return $this->json([], Response::HTTP_OK);
     }

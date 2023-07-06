@@ -77,15 +77,16 @@ class UserSkillService
                 $userSkill->setValue($newSkillValues[$skillId]);
                 unset($newSkillValues[$skillId]);
 
-                $this->userSkillManager->update($userSkill);
+                $this->userSkillManager->emFlush();
             } else {
-                $this->userSkillManager->delete($userSkill);
+                $this->userSkillManager->delete($userSkill)
+                    ->emFlush();
             }
         }
 
         foreach ($newSkillValues as $skillId => $skillValue) {
-            $userSkill = $this->userSkillManager->create($user, $skills[$skillId], $skillValue);
-            $this->userSkillManager->save($userSkill);
+            $this->userSkillManager->create($user, $skills[$skillId], $skillValue);
+            $this->userSkillManager->emFlush();
         }
     }
 

@@ -30,6 +30,9 @@ services:
   App\EventListener\ValidationApiExceptionListener:
     tags:
       - { name: kernel.event_listener, event: !php/const Symfony\Component\HttpKernel\KernelEvents::EXCEPTION }
+  App\EventListener\NotFoundHttpExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: !php/const Symfony\Component\HttpKernel\KernelEvents::EXCEPTION }
 
   App\Symfony\MainParamConvertor:
     autoconfigure: true
@@ -58,3 +61,15 @@ services:
     arguments:
       - '@redis_client'
       - 'student-storage-progress-service'
+
+when@test:
+  services:
+    App\DTO\Builder\CourseDTOWrapperBuilder:
+      public: true
+      arguments:
+        $courseDTOBuilder: '@App\DTO\Builder\CourseDTOBuilder'
+
+    App\DTO\Builder\LessonWrapperDTOBuilder:
+      public: true
+      arguments:
+        $lessonDTOBuilder: '@App\DTO\Builder\LessonDTOBuilder'

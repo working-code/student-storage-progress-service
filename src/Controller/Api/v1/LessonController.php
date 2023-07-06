@@ -48,7 +48,7 @@ class LessonController extends BaseController
 
         return $lesson
             ? $this->json(['lesson' => $this->lessonDTOBuilder->buildFromEntity($lesson)], Response::HTTP_OK)
-            : $this->json([], Response::HTTP_NOT_FOUND);
+            : $this->json(['description' => 'object not found'], Response::HTTP_NOT_FOUND);
     }
 
     /**
@@ -77,7 +77,8 @@ class LessonController extends BaseController
     public function delete(int $id, LessonManager $lessonManager): Response
     {
         if ($lesson = $this->lessonService->findLessonById($id)) {
-            $lessonManager->delete($lesson);
+            $lessonManager->delete($lesson)
+                ->emFlush();
         }
 
         return $this->json([], $lesson ? Response::HTTP_OK : Response::HTTP_NOT_FOUND);

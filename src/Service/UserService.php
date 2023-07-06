@@ -32,13 +32,15 @@ class UserService
             $userDTO->getPatronymic(),
             $userDTO->getEmail(),
             $userDTO->getRoles(),
-            ''
+            $userDTO->getPassword()
         );
-        $user->setPassword($this->authService->getHashPassword($user, $userDTO->getPassword()));
 
         $this->checkExistErrorsValidation($user);
 
-        return $this->userManager->save($user);
+        $user->setPassword($this->authService->getHashPassword($user, $userDTO->getPassword()));
+        $this->userManager->emFlush();
+
+        return $user;
     }
 
     /**
@@ -58,16 +60,22 @@ class UserService
      */
     public function updateUserByUserDTO(User $user, UserDTO $userDTO): User
     {
-        $user->setSurname($userDTO->getSurname())
-            ->setName($userDTO->getName())
-            ->setPatronymic($userDTO->getPatronymic())
-            ->setEmail($userDTO->getEmail())
-            ->setRoles($userDTO->getRoles())
-            ->setPassword($this->authService->getHashPassword($user, $userDTO->getPassword()));
+        $this->userManager->update(
+            $user,
+            $userDTO->getSurname(),
+            $userDTO->getName(),
+            $userDTO->getPatronymic(),
+            $userDTO->getEmail(),
+            $userDTO->getRoles(),
+            $userDTO->getPassword()
+        );
 
         $this->checkExistErrorsValidation($user);
 
-        return $this->userManager->update($user);
+        $user->setPassword($this->authService->getHashPassword($user, $userDTO->getPassword()));
+        $this->userManager->emFlush();
+
+        return $user;
     }
 
     public function findUserById(int $userId): ?User

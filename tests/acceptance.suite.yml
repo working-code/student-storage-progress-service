@@ -9,20 +9,9 @@ modules:
   step_decorators:
     - \Codeception\Step\AsJson
   enabled:
-    - Symfony:
-        app_path: 'src'
-        environment: 'test'
-    - Doctrine2:
-        depends: Symfony
-        cleanup: false
-    - DataFactory:
-        depends: Doctrine2
-        cleanup: false
     - REST:
         url: http://172.100.0.3:80
         depends:
           - PhpBrowser
         part: Json
     - \App\Tests\Helper\Acceptance
-    - \App\Tests\_support\Helper\Factories
-

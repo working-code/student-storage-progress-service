@@ -1,0 +1,75 @@
+stages:
+  - build
+  - tests
+  - switching
+  - rollback
+
+before_script:
+  - apt-get update -qq
+  - apt-get install -qq git
+  - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY" | base64 -d)
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+build:
+  stage: build
+  image: ubuntu:20.04
+  environment:
+    name: server1
+    url: $SERVER1
+  script:
+    - export DIR=$(date +%Y%m%d_%H%M%S)
+    - echo "DIR=$DIR" >> file_with_env
+    - ssh $SSH_USER@$SERVER1 "cd /var/www/student-storage-progress-service &&
+      git clone http://deploy:9ejbsatP1Ni-56CqF6ak@192.168.0.100:8929/svk/student-storage-progress-service.git $DIR &&
+      sudo chown www-data:www-data $DIR -R &&
+      cd $DIR &&
+      sh ./deploy/deploy.sh $SERVER1 $DATABASE_HOST $DATABASE_USER $DATABASE_PASSWORD $DATABASE_NAME $RABBITMQ_HOST $RABBITMQ_USER $RABBITMQ_PASSWORD
+      cd .. &&
+      rm -rf /var/www/student-storage-progress-service/$DIR/var/log && pwd"
+  only:
+    - master
+  artifacts:
+    paths:
+      - file_with_env
+
+tests:
+  stage: tests
+  image: ubuntu:20.04
+  environment:
+    name: server1
+    url: $SERVER1
+  script:
+    - source file_with_env
+    - ssh $SSH_USER@$SERVER1 "cd /var/www/student-storage-progress-service/$DIR &&
+      sh deploy/tests.sh $DATABASE_HOST $DATABASE_USER $DATABASE_PASSWORD $DATABASE_NAME"
+#  rules:
+#    - if: $CI_COMMIT_BRANCH !~ /master/
+#      when: on_success
+#    - when: never
+
+switching:
+  stage: switching
+  image: ubuntu:20.04
+  environment:
+    name: server1
+    url: $SERVER1
+  script:
+    - source file_with_env
+    - ssh $SSH_USER@$SERVER1 "cd /var/www/student-storage-progress-service/$DIR &&
+      ln -s /var/www/student-storage-progress-service/shared/log /var/www/student-storage-progress-service/$DIR/var/log &&
+      ( [ ! -d /var/www/student-storage-progress-service/current ] || mv -Tf /var/www/student-storage-progress-service/current /var/www/student-storage-progress-service/previous ) &&
+      ln -s /var/www/student-storage-progress-service/$DIR /var/www/student-storage-progress-service/current"
+  only:
+    - master
+
+rollback:
+  stage: rollback
+  script:
+    - ssh $SSH_USER@$SERVER1 "unlink /var/www/student-storage-progress-service/current &&
+      mv -Tf /var/www/student-storage-progress-service/previous /var/www/student-storage-progress-service/current &&
+      cd /var/www/student-storage-progress-service/current &&
+      sh ./deploy/rollback.sh $SERVER1"
+  when: manual

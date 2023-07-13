@@ -45,12 +45,16 @@ class Task
     #[ORM\ManyToMany(targetEntity: Task::class, mappedBy: 'children')]
     private Collection $parents;
 
+    #[ORM\OneToMany(mappedBy: 'course', targetEntity: UserCourse::class)]
+    private Collection $userCourses;
+
     public function __construct()
     {
         $this->taskAssessments = new ArrayCollection();
         $this->taskSettings = new ArrayCollection();
         $this->children = new ArrayCollection();
         $this->parents = new ArrayCollection();
+        $this->userCourses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -174,5 +178,15 @@ class Task
         }
 
         return $this;
+    }
+
+    public function getUserCourses(): Collection
+    {
+        return $this->userCourses;
+    }
+
+    public function setUserCourses(Collection $userCourses): void
+    {
+        $this->userCourses = $userCourses;
     }
 }

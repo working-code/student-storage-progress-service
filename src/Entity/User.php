@@ -66,11 +66,15 @@ class User
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserSkill::class)]
     private Collection $userSkills;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserCourse::class)]
+    private Collection $userCourses;
+
     public function __construct()
     {
         $this->achievements = new ArrayCollection();
         $this->taskAssessments = new ArrayCollection();
         $this->userSkills = new ArrayCollection();
+        $this->userCourses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -223,5 +227,15 @@ class User
         $this->userSkills = $userSkills;
 
         return $this;
+    }
+
+    public function getUserCourses(): Collection
+    {
+        return $this->userCourses;
+    }
+
+    public function setUserCourses(Collection $userCourses): void
+    {
+        $this->userCourses = $userCourses;
     }
 }

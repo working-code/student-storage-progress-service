@@ -24,4 +24,20 @@ class AchievementService
 
         return $achievementRepository->getAchievementWithOffset($numberPage, $countInPage);
     }
+
+    public function getAchievementSuperGold(): Achievement
+    {
+        /** @var AchievementRepository $achievementRepository */
+        $achievementRepository = $this->em->getRepository(Achievement::class);
+
+        return $achievementRepository->findOneBy(['title' => Achievement::NAME_SUPER_GOLD]);
+    }
+
+    public function getAchievementSuperSilver(): Achievement
+    {
+        /** @var AchievementRepository $achievementRepository */
+        $achievementRepository = $this->em->getRepository(Achievement::class);
+
+        return $achievementRepository->findOneBy(['title' => Achievement::NAME_SUPER_SILVER]);
+    }
 }

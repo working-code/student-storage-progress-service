@@ -13,8 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Achievement
 {
     public const NAME_GOLD = 'Золото';
-    public const NAME_SILVER = 'Супер золото';
-    public const NAME_SUPER_GOLD = 'Серебро';
+    public const NAME_SILVER = 'Серебро';
+    public const NAME_SUPER_GOLD = 'Супер золото';
     public const NAME_SUPER_SILVER = 'Супер серебро';
 
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

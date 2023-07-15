@@ -15,6 +15,9 @@ use App\Exception\NotFoundException;
 use App\Exception\ValidationException;
 use App\Manager\TaskAssessmentManager;
 use App\Repository\TaskAssessmentRepository;
+use DateTime;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -145,5 +148,27 @@ class TaskAssessmentService
         }
 
         return $skills;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function getMinAssessmentByCourseAndStudentsByMonth(
+        Task       $course,
+        Collection $students,
+        DateTime   $month
+    ): array
+    {
+        $tasks = $this->taskService->getTasksByCourse($course);
+
+        /** @var TaskAssessmentRepository $taskAssessmentRepository */
+        $taskAssessmentRepository = $this->em->getRepository(TaskAssessment::class);
+
+        $startDate = clone $month;
+        $startDate->modify('first day of this month')->setTime(0, 0);
+        $endDate = $month;
+        $endDate->modify('last day of this month')->setTime(23, 59, 59);
+
+        return $taskAssessmentRepository->getMinAssessmentByCourseAndStudents($tasks, $students, $startDate, $endDate);
     }
 }

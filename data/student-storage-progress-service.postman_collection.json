@@ -1,0 +1,4943 @@
+{
+	"info": {
+		"_postman_id": "ae9af9b3-6a6a-4c89-ace2-23204759db32",
+		"name": "student-storage-progress-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Skill",
+			"item": [
+				{
+					"name": "add",
+					"item": [
+						{
+							"name": "Symfony. Работа с Doctrine ORM",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Работа с Doctrine ORM\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": null\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Создание CRUD контроллеров",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Создание CRUD контроллеров\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Валидация",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Валидация\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Работа с формами",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Работа с формами\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Создание REST-приложения",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Создание REST-приложения\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Создание stateless API с контролем доступа через токен",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Создание stateless API с контролем доступа через токен\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Логироввание",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Логироввание\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Мониторинг",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Мониторинг\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Кеширование",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Кеширование\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Работа с очередями",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Работа с очередями\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Unit-тестирование",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Unit-тестирование\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Создание консольных команд",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Создание консольных команд\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Интеграционное тестирование",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Интеграционное тестирование\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. Развёртывание приложения",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. Развёртывание приложения\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony.  DDD в Symfony",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. DDD в Symfony\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony. API Platfrom",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"skill\": {\n        \"name\": \"Symfony. API Platfrom\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/skill",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"skill"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get skill",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/skill/31",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"skill",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/skill?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"skill"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update skill",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"skill\": {\n        \"name\": \"new name\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/skill/31",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"skill",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del skill",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/skill/31",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"skill",
+								"31"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Achievement",
+			"item": [
+				{
+					"name": "get Achievement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/achievement/33",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"achievement",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Achievements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "numberPage",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "countInPage",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/achievement?numberPage=1&countInPage=20",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"achievement"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "add Symfony Framework",
+					"item": [
+						{
+							"name": "подготовить Entity-классы",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "error",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "подготовить Repository-классы",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Repository-классы\",\n        \"content\": \"Для всех сущностей должны присутствовать классы репозиториев с методами поиска, которые могут понадобиться в проекте (помимо встроенных методов поиска по произвольному набору полей)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "подготовить миграции БД",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"подготовить миграции БД\",\n        \"content\": \"миграции должны быть корректно сгруппированы по классам (при применении и откате миграций не должно быть возможности попасть в неконсистентное состояние БД)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Реализовать контроллеры для работы с заданными бизнес-сущностями",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Реализовать контроллеры для работы с заданными бизнес-сущностями\",\n        \"content\": \"Реализованы основные CRUD-действия с заданными на предыдущем этапе бизнес-сущностями\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Вынести всю сложную логику из контроллеров в сервисы",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Вынести всю сложную логику из контроллеров в сервисы\",\n        \"content\": \"В сервисах продумана логика переиспользования (т.е. каждое атомарное действие реализуется отдельным публичным методом, и сложные действия выполняются последовательностью вызовов этих методов)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Выделить те бизнес-сущности, где тривиальной валидации недостаточно",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Выделить те бизнес-сущности, где тривиальной валидации недостаточно\",\n        \"content\": \"Рекомендуем сдать до: 03.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Реализовать CU-действия с этими сущностями с помощью Symfony Forms",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Реализовать CU-действия с этими сущностями с помощью Symfony Forms\",\n        \"content\": \"Рекомендуем сдать до: 03.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Если явно таких бизнес-сущностей нет, то выполнить действия для наиболее сложной бизнес-сущности",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Если явно таких бизнес-сущностей нет, то выполнить действия для наиболее сложной бизнес-сущности\",\n        \"content\": \"Рекомендуем сдать до: 03.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Продумать RBAC-модель для проекта",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Продумать RBAC-модель для проекта\",\n        \"content\": \"Рекомендуем сдать до: 13.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Настроить компонент Security",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Настроить компонент Security\",\n        \"content\": \"Рекомендуем сдать до: 13.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Настроить авторизацию действий в контроллерах",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Настроить авторизацию действий в контроллерах\",\n        \"content\": \"Рекомендуем сдать до: 13.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Настроить работу с токенами",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Настроить работу с токенами\",\n        \"content\": \"Рекомендуем сдать до: 13.04.2023\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add PHP Developer. Professional",
+					"item": [
+						{
+							"name": "развернуть web server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"развернуть web server\",\n        \"content\": \"PHP WebServers\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Алгоритмы",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \" Алгоритмы\",\n        \"content\": \" Алгоритмы\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Решение алгоритмических задач",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Решение алгоритмических задач\",\n        \"content\": \"Решение алгоритмических задач\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add Java Developer. Professional",
+					"item": [
+						{
+							"name": "QA и тестирование",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"QA и тестирование\",\n        \"content\": \"QA и тестирование\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "QA и тестирование. Дополнительный разбор",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"QA и тестирование. Дополнительный разбор\",\n        \"content\": \"QA и тестирование. Дополнительный разбор\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Аннотации. ДЗ",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"task\": {\n        \"title\": \"Аннотации. ДЗ\",\n        \"content\": \"Аннотации. ДЗ\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task/11",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"Новая тема\",\n        \"content\": \"можно не сдавать)\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task/13",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"Новая тема\",\n        \"content\": \"можно не сдавать)\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task/27",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task",
+								"27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lesson",
+			"item": [
+				{
+					"name": "add Symfony Framework",
+					"item": [
+						{
+							"name": "Doctrine ORM",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"Doctrine ORM\",\n        \"content\": \"познакомиться с Doctrine; создать базовые модели; разобрать связи между моделями.\"\n    },\n    \"taskIds\": [1,2,3]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Контроллеры и маршрутизация",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"Контроллеры и маршрутизация\",\n        \"content\": \"работать с маршрутизацией в Symfony; настраивать методы обработки пользовательских запросов; конфигурировать контроллеры с помощью SensioFrameworkExtraBundle.\"\n    },\n    \"taskIds\": [4,5]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Symfony Forms",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"Symfony Forms\",\n        \"content\": \"обрабатывать запросы пользователя, содержащие данные; валидировать данные с помощью Symfony Forms; рендеринг пользовательских форм.\"\n    },\n    \"taskIds\": [6,7,8]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Stateless API",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"Stateless API\",\n        \"content\": \"реализовывать stateless API с помощью Symfony; использовать авторизацию по токену; разграничение доступа в stateless API.\"\n    },\n    \"taskIds\": [9,10,11,12]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add PHP Developer. Professional",
+					"item": [
+						{
+							"name": "web server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"web server\",\n        \"content\": \"web server\"\n    },\n    \"taskIds\": [18]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Алгоритмы",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"web server\",\n        \"content\": \"web server\"\n    },\n    \"taskIds\": [19,20]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add Java Developer. Professional",
+					"item": [
+						{
+							"name": "QA и тестирование",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"QA и тестирование\",\n        \"content\": \"QA и тестирование\"\n    },\n    \"taskIds\": [24,25]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Аннотации",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"lesson\": {\n        \"title\": \"Аннотациие\",\n        \"content\": \"Аннотации\"\n    },\n    \"taskIds\": [26]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/lesson",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"lesson"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/lesson/23",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"lesson",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/lesson/24",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"lesson",
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lesson\": {\n        \"title\": \"Занятие № 1\",\n        \"content\": \"Вводная лекция\"\n    },\n    \"taskIds\": [3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/lesson/23",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"lesson",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/lesson?numberPage=1&countInPage=3",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"lesson"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "add",
+					"item": [
+						{
+							"name": "Symfony Framework",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"course\": {\n        \"title\": \"Symfony Framework\",\n        \"content\": \"Symfony — один из самых сложных, надежных и высокопроизводительных PHP-фреймворков. Он по праву считается основным фреймворком для решения задач уровня enterprise. Symfony используют многие популярные проекты, например, Drupal, phpBB. Даже самый популярный PHP-фреймворк Laravel построен на основе Symfony. Курс рассчитан на PHP-разработчиков с опытом работы от двух лет.\"\n    },\n    \"lessonIds\": [13, 14, 15, 16]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PHP Developer. Professional",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"course\": {\n        \"title\": \"PHP Developer. Professional\",\n        \"content\": \"Уникальные знания = большие возможности. Успей прокачаться и занять вакантное место в большом проекте!\"\n    },\n    \"lessonIds\": [21, 22]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Java Developer. Professional",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"course\": {\n        \"title\": \"Java Developer. Professional\",\n        \"content\": \"Освойте создание современных Java-приложений\"\n    },\n    \"lessonIds\": [27,28]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"course"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/course/3",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"course",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/course/34",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"course",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course\": {\n        \"title\": \"Курс по отдыху\",\n        \"content\": \"Мы научим вас отдыхать)\"\n    },\n    \"lessonIds\": [26, 29]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/course/33",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"course",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/course?numberPage=1&countInPage=3",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"course"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TaskAssesment",
+			"item": [
+				{
+					"name": "add Symfony Framework",
+					"item": [
+						{
+							"name": "student",
+							"item": [
+								{
+									"name": "task 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 1,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 2,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 3",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 3,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 4",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 4,\n        \"assessment\": 7\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 5",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 5,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 6",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 6,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 7",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 7,\n        \"assessment\": 6\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 8",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 8,\n        \"assessment\": 7\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 9",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 9,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 10",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 10,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 11",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 11,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 12",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 12,\n        \"assessment\": 6\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "student 2",
+							"item": [
+								{
+									"name": "task 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 1,\n        \"assessment\": 7\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 2,\n        \"assessment\": 8\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 3",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 3,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 4",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 4,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 5",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 5,\n        \"assessment\": 6\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 6",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 6,\n        \"assessment\": 7\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 7",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 7,\n        \"assessment\": 8\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 8",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 8,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 9",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 9,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 10",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 10,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 11",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 11,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 12",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 12,\n        \"assessment\": 8\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "add PHP Developer. Professional",
+					"item": [
+						{
+							"name": "student",
+							"item": [
+								{
+									"name": "task 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 18,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 19,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 3",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 2,\n        \"taskId\": 20,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "student 2",
+							"item": [
+								{
+									"name": "task 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 18,\n        \"assessment\": 6\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 19,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 3",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 3,\n        \"taskId\": 20,\n        \"assessment\": 7\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "add Java Developer. Professional",
+					"item": [
+						{
+							"name": "teacher",
+							"item": [
+								{
+									"name": "task 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 4,\n        \"taskId\": 24,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 4,\n        \"taskId\": 25,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 26",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 4,\n        \"taskId\": 26,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "teacher 2",
+							"item": [
+								{
+									"name": "task 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 5,\n        \"taskId\": 24,\n        \"assessment\": 9\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 5,\n        \"taskId\": 25,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task 26",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assessment\": {\n        \"userId\": 5,\n        \"taskId\": 26,\n        \"assessment\": 10\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/api/{{api_version}}/task_assessment",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"api",
+												"{{api_version}}",
+												"task_assessment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_assessment/11",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_assessment",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_assessment?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_assessment"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update task 1",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assessment\": {\n        \"userId\": 14,\n        \"taskId\": 1,\n        \"assessment\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_assessment/54",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_assessment",
+								"54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update task 3",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assessment\": {\n        \"userId\": 1,\n        \"taskId\": 3,\n        \"assessment\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_assessment/79",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_assessment",
+								"79"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_assessment/30",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_assessment",
+								"30"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TaskSetting",
+			"item": [
+				{
+					"name": "add Symfony Framework",
+					"item": [
+						{
+							"name": "setting 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 1,\n        \"skillId\": 1,\n        \"skillValue\": 30\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 1,\n        \"skillId\": 3,\n        \"skillValue\": 70\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 2,\n        \"skillId\": 1,\n        \"skillValue\": 40\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 2,\n        \"skillId\": 3,\n        \"skillValue\": 60\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 3,\n        \"skillId\": 1,\n        \"skillValue\": 100\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 4,\n        \"skillId\": 1,\n        \"skillValue\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 5",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 5,\n        \"skillId\": 2,\n        \"skillValue\": 50\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 6",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 6,\n        \"skillId\": 2,\n        \"skillValue\": 70\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting  7",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 7,\n        \"skillId\": 4,\n        \"skillValue\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 8",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 8,\n        \"skillId\": 4,\n        \"skillValue\": 67\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 9",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 9,\n        \"skillId\": 6,\n        \"skillValue\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 10",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 10,\n        \"skillId\": 6,\n        \"skillValue\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 11",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 11,\n        \"skillId\": 6,\n        \"skillValue\": 60\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 12",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 12,\n        \"skillId\": 6,\n        \"skillValue\": 40\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add PHP Developer. Professional",
+					"item": [
+						{
+							"name": "setting 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 18,\n        \"skillId\": 11,\n        \"skillValue\": 30\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 19,\n        \"skillId\": 11,\n        \"skillValue\": 40\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 20,\n        \"skillId\": 11,\n        \"skillValue\": 50\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add Java Developer. Professional",
+					"item": [
+						{
+							"name": "setting 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 24,\n        \"skillId\": 15,\n        \"skillValue\": 30\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 25,\n        \"skillId\": 14,\n        \"skillValue\": 30\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setting 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 26,\n        \"skillId\": 11,\n        \"skillValue\": 30\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/task_setting",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"task_setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_setting/8",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_setting",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": {\n        \"title\": \"подготовить Entity-классы\",\n        \"content\": \"В работе должны быть описаны основные сущности бизнес-логики из проекта. Проверить валидность описания можно командой doctrine:schema:validate\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_setting/9",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_setting",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create setting 3 Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskSetting\": {\n        \"taskId\": 3,\n        \"skillId\": 7,\n        \"skillValue\": 50\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_setting/8",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_setting",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/task_setting?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"task_setting"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserAchievement",
+			"item": [
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user_achievement?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user_achievement"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "add",
+					"item": [
+						{
+							"name": "admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Дуб\",\n        \"name\": \"Андрей\",\n        \"patronymic\": \"Иванович\",\n        \"email\": \"admin@php.ru\",\n        \"roles\": [\"ROLE_ADMIN\"],\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Кисель\",\n        \"name\": \"Юрий\",\n        \"patronymic\": \"Павлович\",\n        \"email\": \"student@php.ru\",\n        \"roles\": [\"ROLE_VIEW\"],\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Блин\",\n        \"name\": \"Артём\",\n        \"patronymic\": \"Павлович\",\n        \"email\": \"student2@php.ru\",\n        \"roles\": [\"ROLE_VIEW\"],\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "teacher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Умный\",\n        \"name\": \"Олег\",\n        \"patronymic\": \"Анатольевич\",\n        \"email\": \"teacher@php.ru\",\n        \"roles\": [\"ROLE_TEACHER\"],\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "teacher2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Разумный\",\n        \"name\": \"Олег\",\n        \"patronymic\": \"Витальевич\",\n        \"email\": \"teacher2@php.ru\",\n        \"roles\": [\"ROLE_TEACHER\"],\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login admin",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"admin@php.ru\",\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user/login",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login env test",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"admin\",\n        \"password\": \"$2y$13$.NaWbYabsSqQPigtxK8H7urtIVWPHUoUJpvfoBHf0j00iwJdBCRz\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user/login",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login student",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"student@php.ru\",\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user/login",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login teacher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"teacher@php.ru\",\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user/login",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user/13",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user/15",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODUzNjMwOTUsImV4cCI6MTY4NTM2NjY5NSwiZW1haWwiOiJ0ZWFjaGVyMkBwaHAucnUiLCJyb2xlcyI6WyJST0xFX1ZJRVciXX0.YdN0YvQ7iVQtAm36btH8PSARLxJeVnCktluGqvHe4ZAHiB356U2FQuMpnOqzWqICI47hvZb2Gvbsf0SBA-5wHqxxfm9s3-gVy6THlboZjKfmKRDhXlBtlv2mcmFd8JR-Fndy88FfuNnzLyzb0QObK6BO9rypXE-0lUSnJaOs96U7sHwI_R3In0LpdEkenLPfiwFk8oMOWszxowBf63yxk9_qZAjA2pnd23ji6SLIH6dlrzisHvj3EGaC9f1Q9DB7-YX8JokwwGwDSam2V9nvnGi75pPUK96J3W_JMdfNZRao_ZOxJ-be7NRLrOM1fO73w1r2AZQtdb8HY43XN3LE6B7dwN6UHAqGhze84o0IZUhkn2tbIMLN_zHBqaabjmJGQVyFy2PpZAwBcCgwNs78tVoroT49bvS0xSie00XR3vAr_IyU-EDwmPjfVmevtdjfvxCJAg_DYkbnwQdzIWg9jFPT059vG7BCsl8hsyePlFb93xyE3x4C9TS6-IRQzdzwITW0TyOY1WPhn0G3Vduv_GJygIaX8cQ6UuTW3azyjP3kH0egl3WjcBqHoyWKSkgt25g-mXnQ5BxjXVzzA3SPJxt8AJ7xL9FQMJOgA_Wfy5uGhwnUpsuGINlJAya5kIvucOqJ8P2n03bl61ELliI1cqxRxtjX1ypk0afsVaJ82X4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"surname\": \"Умный\",\n        \"name\": \"Иван\",\n        \"patronymic\": \"Анатольевич\",\n        \"email\": \"teacher2@php.ru\",\n        \"roles\": [\"ROLE_VIEW\"],\n        \"password\": \"password3\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user/16",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get skills by user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user/1/skills",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user",
+								"1",
+								"skills"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User v2",
+			"item": [
+				{
+					"name": "add",
+					"item": [
+						{
+							"name": "admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Дуб\",\n        \"name\": \"Андрей\",\n        \"patronymic\": \"Иванович\",\n        \"email\": \"admin@php.ru\",\n        \"roles\": [\"ROLE_ADMIN\"],\n        \"password\": \"password\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/v2/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Кисель\",\n        \"name\": \"Юрий\",\n        \"patronymic\": \"Павлович\",\n        \"email\": \"student@php.ru\",\n        \"roles\": [\"ROLE_VIEW\"],\n        \"password\": \"password1\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "teacher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Умный\",\n        \"name\": \"Олег\",\n        \"patronymic\": \"Анатольевич\",\n        \"email\": \"teacher@php.ru\",\n        \"roles\": [\"ROLE_TEACHER\"],\n        \"password\": \"password2\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "teacher2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"surname\": \"Умный\",\n        \"name\": \"Олег\",\n        \"patronymic\": \"Анатольевич\",\n        \"email\": \"teacher3@php.ru\",\n        \"roles\": [\"ROLE_TEACHER\"],\n        \"password\": \"password2\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user/15",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user/15",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"surname\": \"Умный\",\n        \"name\": \"Иван\",\n        \"patronymic\": \"Анатольевич\",\n        \"email\": \"teacher2@php.ru\",\n        \"roles\": [\"ROLE_VIEW\"],\n        \"password\": \"password3\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v2/user/16",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"user",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"admin@php.ru\",\n        \"password\": \"password\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v2/user/login",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"student@php.ru\",\n        \"password\": \"password1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v2/user/login",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"teacher@php.ru\",\n        \"password\": \"password2\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v2/user/login",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v2/user?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"user"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "userCourse",
+			"item": [
+				{
+					"name": "add Symfony Framework",
+					"item": [
+						{
+							"name": "admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 1,\n        \"courseId\": 17\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 2,\n        \"courseId\": 17\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 3,\n        \"courseId\": 17\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PHP Developer. Professional",
+					"item": [
+						{
+							"name": "admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 1,\n        \"courseId\": 23\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 2,\n        \"courseId\": 23\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 3,\n        \"courseId\": 23\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Java Developer. Professional",
+					"item": [
+						{
+							"name": "teacher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 4,\n        \"courseId\": 29\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "teacher2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 5,\n        \"courseId\": 29\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userCourse\": {\n        \"userId\": 1,\n        \"courseId\": 29\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/api/{{api_version}}/user_course",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"user_course"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user_course/3",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user_course",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user_course/10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user_course",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userCourse\": {\n        \"userId\": 16,\n        \"courseId\": 29\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user_course/10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user_course",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/{{api_version}}/user_course?numberPage=1&countInPage=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"user_course"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "1"
+								},
+								{
+									"key": "countInPage",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODk1MDUyMzEsImV4cCI6MTY4OTU5MTYzMSwiZW1haWwiOiJhZG1pbkBwaHAucnUiLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9WSUVXIl19.asYonrFnMMhn7BZQGxXamjTkfKTnWYLWALA0mI83ler90NfZwLTggJ6MwsVbV5MqmzqxIEvEC1GmP3xgyk9wSTNyVPSH467OxGz23VrunvAytsjYjWgMqYbNnA74B8FthSb4pl5GnOu2dKjGYICoYAi2JM08bSCWSdjxmjAGzMedkYUeq_R5LqdBdAB1jS4fQBMxEtcWOSIMA_C47sz9CECLtAM10jM0dqcCQOB32RJ4O1ZxPLd66cGrZY6l1f5fvaqQHpKO7215TJLSSmYs7WaoXVBMMZzH1kkM0pNFrIszkeSY8JGrtapAf3tErKXXDDBZMNTogHrLJQcl12PsYapDmA-6iYWdcR2ohk8x63oH-wmQl2QnDtqdCBrRwH5thq482MFBBAKezBoyF7y3Oxe0RB0hkoShzSLrcYeRhBJR1t_S4klcasU48NnHtdLt4I_AfeaVRbPPUTNXxmFajrAEKzw-l0wat3xsfaSTmBcWRzMsWEsK-a2QcGwYF4OpLmL_zvFcOGGAHlLPglnr14wiN_VWkVdcXImsUTMZWhlQ7F2Ood6SdNg1FM-YxAJuaMbAZe0uls9Zj1GmtfHne9_IOwV-mjOhU-20DQdaEk69MRtHNw9Q9jJ2XbaZfbS0eRvALwRC3sEO1cMJVAxNnID2idzXLjJeznwoOk9ex9E",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

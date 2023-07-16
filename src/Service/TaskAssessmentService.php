@@ -171,4 +171,12 @@ class TaskAssessmentService
 
         return $taskAssessmentRepository->getMinAssessmentByCourseAndStudents($tasks, $students, $startDate, $endDate);
     }
+
+    public function getAggregationAssessmentByTasks(array $tasks): array
+    {
+        /** @var TaskAssessmentRepository $taskAssessmentRepository */
+        $taskAssessmentRepository = $this->em->getRepository(TaskAssessment::class);
+
+        return $taskAssessmentRepository->getAggregationAssessmentByTasks($tasks);
+    }
 }

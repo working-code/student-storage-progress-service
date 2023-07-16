@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UserCourseRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: UserCourseRepository::class)]
 #[ORM\Index(columns: ['user_id'], name: 'user_course__user_id__ind')]
 #[ORM\Index(columns: ['course_id'], name: 'user_course__course_id__ind')]
+#[ApiResource]
 class UserCourse
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

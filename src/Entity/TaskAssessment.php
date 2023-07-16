@@ -2,6 +2,10 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\TaskAssessmentRepository;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,6 +18,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: TaskAssessmentRepository::class)]
 #[ORM\Index(columns: ['user_id'], name: 'task_assessment__user_id__ind')]
 #[ORM\Index(columns: ['task_id'], name: 'task_assessment__task_id__ind')]
+#[ApiResource]
+#[\ApiPlatform\Core\Annotation\ApiResource]
+#[ApiFilter(SearchFilter::class, properties: ['user.id' => 'exact', 'assessment' => 'exact', 'task.type'])]
+#[ApiFilter(DateFilter::class, properties: ['createdAt'])]
 class TaskAssessment
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UserSkillRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Index(columns: ['user_id'], name: 'user_skill__user_id__ind')]
 #[ORM\Index(columns: ['skill_id'], name: 'user_skill__skill_id__ind')]
 #[ORM\UniqueConstraint(name: 'user_skill__user_id_skill_id__un_ind', columns: ['user_id', 'skill_id'])]
+#[ApiResource]
 class UserSkill
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

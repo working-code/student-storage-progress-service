@@ -51,4 +51,21 @@ class TaskAssessmentRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getAggregationAssessmentByTasks(array $tasks): array
+    {
+        $qb = $this->createQueryBuilder('ta');
+        $qb->select(
+            'u.id as user_id',
+            $qb->expr()->min('ta.assessment') . ' as min',
+            $qb->expr()->max('ta.assessment') . ' as max',
+            $qb->expr()->avg('ta.assessment') . ' as avg',
+            $qb->expr()->count('ta.assessment') . ' as count',
+        )
+            ->join('ta.user', 'u')
+            ->andWhere($qb->expr()->in('ta.task', array_map(static fn(Task $task) => $task->getId(), $tasks)))
+            ->addGroupBy('u.id');
+
+        return $qb->getQuery()->getResult();
+    }
 }

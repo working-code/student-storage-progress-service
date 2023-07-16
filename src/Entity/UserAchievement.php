@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UserAchievementRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: UserAchievementRepository::class)]
 #[ORM\Index(columns: ['user_id'], name: 'user_achievement__user_id__ind')]
 #[ORM\Index(columns: ['achievement_id'], name: 'user_achievement__achievement_id__ind')]
+#[ApiResource]
 class UserAchievement
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

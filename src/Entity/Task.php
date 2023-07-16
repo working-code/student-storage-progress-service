@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use App\Entity\Enums\TaskType;
 use App\Repository\TaskRepository;
+use App\Resolver\TaskCollectionResolver;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,6 +15,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'task')]
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
+#[ApiResource]
+#[\ApiPlatform\Core\Annotation\ApiResource(
+    graphql: ['collectionQuery' => ['collection_query' => TaskCollectionResolver::class]]
+)]
+#[ApiFilter(SearchFilter::class, properties: ['type' => 'exact'])]
 class Task
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
@@ -47,6 +56,8 @@ class Task
 
     #[ORM\OneToMany(mappedBy: 'course', targetEntity: UserCourse::class)]
     private Collection $userCourses;
+
+    private array $assessmentAggregations = [];
 
     public function __construct()
     {
@@ -89,18 +100,6 @@ class Task
     public function setContent(string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getType(): TaskType
-    {
-        return $this->type;
-    }
-
-    public function setType(TaskType $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -188,5 +187,39 @@ class Task
     public function setUserCourses(Collection $userCourses): void
     {
         $this->userCourses = $userCourses;
+    }
+
+    public function getAssessmentAggregations(): array
+    {
+        return $this->assessmentAggregations;
+    }
+
+    public function setAssessmentAggregations(array $assessmentAggregations): self
+    {
+        $this->assessmentAggregations = $assessmentAggregations;
+
+        return $this;
+    }
+
+    public function isTaskTypeCourse(): bool
+    {
+        return $this->getType() === TaskType::Course;
+    }
+
+    public function getType(): TaskType
+    {
+        return $this->type;
+    }
+
+    public function setType(TaskType $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function isTaskTypeLesson(): bool
+    {
+        return $this->getType() === TaskType::Lesson;
     }
 }

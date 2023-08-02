@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\TaskSettingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: TaskSettingRepository::class)]
 #[ORM\Index(columns: ['skill_id'], name: 'task_setting__skill_id__ind')]
 #[ORM\Index(columns: ['task_id'], name: 'task_setting__task_id__ind')]
+#[ApiResource]
 class TaskSetting
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

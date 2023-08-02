@@ -7,6 +7,7 @@ use App\Entity\Enums\TaskType;
 use App\Entity\Task;
 use App\Exception\ValidationException;
 use App\Repository\TaskRepository;
+use Doctrine\DBAL\Exception;
 
 class TaskService extends BaseTaskService
 {
@@ -45,5 +46,18 @@ class TaskService extends BaseTaskService
         $taskRepository = $this->em->getRepository(Task::class);
 
         return $taskRepository->getTaskWithOffset($numberPage, $countInPage, TaskType::Task);
+    }
+
+    /**
+     * @return Task[]
+     *
+     * @throws Exception
+     */
+    public function getTasksByCourse(Task $course): array
+    {
+        /** @var TaskRepository $taskRepository */
+        $taskRepository = $this->em->getRepository(Task::class);
+
+        return $taskRepository->getTasksByCourse($course);
     }
 }

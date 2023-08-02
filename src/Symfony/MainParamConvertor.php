@@ -61,7 +61,7 @@ class MainParamConvertor implements ParamConverterInterface
         if ($options[static::VALIDATE]) {
             $errors = $this->validator->validate($object, null, $groups);
 
-            if ($errors->count() <= 0) {
+            if ($errors->count() <= 0 && !$groups) {
                 $errors = $this->validator->validate($object);
             }
 

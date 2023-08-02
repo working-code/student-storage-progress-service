@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\SkillAssessmentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: SkillAssessmentRepository::class)]
 #[ORM\Index(columns: ['skill_id'], name: 'skill_assessment__skill_id__ind')]
 #[ORM\Index(columns: ['task_assessment_id'], name: 'skill_assessment__task_assessment_id__ind')]
+#[ApiResource]
 class SkillAssessment
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

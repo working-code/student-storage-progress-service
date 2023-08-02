@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UserRepository;
 use App\Security\UserRole;
 use DateTime;
@@ -11,36 +14,47 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[UniqueEntity('email')]
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'user__email_unq', columns: ['email'])]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ApiResource(normalizationContext: ['groups' => [self::GROUP_SINGLE]])]
+#[ApiFilter(OrderFilter::class, properties: ['id', 'createdAt', 'updatedAt'])]
 class User
 {
+    public const GROUP_SINGLE = 'user:get';
+
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
+    #[Groups([self::GROUP_SINGLE])]
     private ?int $id = null;
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    #[Groups([self::GROUP_SINGLE])]
     private string $surname;
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    #[Groups([self::GROUP_SINGLE])]
     private string $name;
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 120, nullable: false)]
+    #[Groups([self::GROUP_SINGLE])]
     private string $patronymic;
 
     #[Assert\Email]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 100, unique: true, nullable: false)]
+    #[Groups([self::GROUP_SINGLE])]
     private string $email;
 
     #[ORM\Column(type: 'json', length: 1024, nullable: false)]
+    #[Groups([self::GROUP_SINGLE])]
     private array $roles = [];
 
     #[Assert\NotBlank]
@@ -49,26 +63,36 @@ class User
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'create')]
+    #[Groups([self::GROUP_SINGLE])]
     private DateTime $createdAt;
 
     #[ORM\Column(name: 'updated_at', type: 'datetime', nullable: false)]
     #[Gedmo\Timestampable(on: 'update')]
+    #[Groups([self::GROUP_SINGLE])]
     private DateTime $updatedAt;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserAchievement::class)]
+    #[Groups([self::GROUP_SINGLE])]
     private Collection $achievements;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: TaskAssessment::class)]
+    #[Groups([self::GROUP_SINGLE])]
     private Collection $taskAssessments;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserSkill::class)]
+    #[Groups([self::GROUP_SINGLE])]
     private Collection $userSkills;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserCourse::class)]
+    #[Groups([self::GROUP_SINGLE])]
+    private Collection $userCourses;
 
     public function __construct()
     {
         $this->achievements = new ArrayCollection();
         $this->taskAssessments = new ArrayCollection();
         $this->userSkills = new ArrayCollection();
+        $this->userCourses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -221,5 +245,15 @@ class User
         $this->userSkills = $userSkills;
 
         return $this;
+    }
+
+    public function getUserCourses(): Collection
+    {
+        return $this->userCourses;
+    }
+
+    public function setUserCourses(Collection $userCourses): void
+    {
+        $this->userCourses = $userCourses;
     }
 }

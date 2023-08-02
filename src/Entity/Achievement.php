@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\AchievementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,11 +11,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'achievement')]
 #[ORM\Entity(repositoryClass: AchievementRepository::class)]
+#[ApiResource]
 class Achievement
 {
     public const NAME_GOLD = 'Золото';
-    public const NAME_SILVER = 'Супер золото';
-    public const NAME_SUPER_GOLD = 'Серебро';
+    public const NAME_SILVER = 'Серебро';
+    public const NAME_SUPER_GOLD = 'Супер золото';
     public const NAME_SUPER_SILVER = 'Супер серебро';
 
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

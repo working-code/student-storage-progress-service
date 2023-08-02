@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\SkillRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Table(name: 'skill')]
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
+#[ApiResource]
 class Skill
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

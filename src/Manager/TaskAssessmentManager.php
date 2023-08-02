@@ -27,19 +27,6 @@ class TaskAssessmentManager
         return $taskAssessment;
     }
 
-    //public function update(
-    //    TaskAssessment $taskAssessment,
-    //    Task           $task,
-    //    int            $assessment,
-    //    User           $user
-    //): TaskAssessment
-    //{
-    //    return $taskAssessment
-    //        ->setTask($task)
-    //        ->setAssessment($assessment)
-    //        ->setUser($user);
-    //}
-
     public function delete(TaskAssessment $taskAssessment): self
     {
         $this->em->remove($taskAssessment);

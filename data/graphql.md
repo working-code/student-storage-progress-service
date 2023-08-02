@@ -11,6 +11,7 @@
         skillAssessments{
           edges{
             node{
+              skillValue
               skill{
                 name
               }
